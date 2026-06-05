@@ -1,0 +1,2 @@
+import { useEffect,useState } from 'react';
+export function useNewsData<T>(load:()=>Promise<T>,deps:unknown[]=[]){const[data,setData]=useState<T>();const[isLoading,setLoading]=useState(true);const[error,setError]=useState<string|null>(null);useEffect(()=>{let active=true;setLoading(true);setError(null);load().then(v=>active&&setData(v)).catch(()=>active&&setError('Տվյալները ժամանակավորապես հասանելի չեն։')).finally(()=>active&&setLoading(false));return()=>{active=false};},deps);return{data,isLoading,error};}

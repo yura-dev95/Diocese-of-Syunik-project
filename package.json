@@ -1,0 +1,17 @@
+{
+  "name": "diocese-of-syunik-platform",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n WEB,API -c magenta,green \"npm run dev -w @syunik/web\" \"npm run dev -w @syunik/api\"",
+    "build": "npm run build -w @syunik/web && npm run build -w @syunik/api",
+    "typecheck": "npm run typecheck -w @syunik/web && npm run typecheck -w @syunik/api",
+    "prisma:generate": "npm run prisma:generate -w @syunik/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

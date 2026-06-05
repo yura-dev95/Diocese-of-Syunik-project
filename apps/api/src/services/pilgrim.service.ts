@@ -1,0 +1,2 @@
+import { etiquetteRules, liturgySchedules, pilgrimRoutes, usefulContacts } from '../data/pilgrim.data.js';
+export const pilgrimService={routes:()=>pilgrimRoutes,route:(slug:string)=>pilgrimRoutes.find(r=>r.slug===slug),schedules:()=>liturgySchedules,contacts:(category?:string)=>usefulContacts.filter(c=>!category||c.category===category),rules:()=>[...etiquetteRules].sort((a,b)=>a.sortOrder-b.sortOrder)};

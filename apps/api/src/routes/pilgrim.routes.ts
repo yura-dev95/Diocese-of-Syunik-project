@@ -1,0 +1,2 @@
+import { Router } from 'express';import { getEtiquetteRules, getLiturgySchedules, getPilgrimRoute, getPilgrimRoutes, getUsefulContacts } from '../controllers/pilgrim.controller.js';
+export const pilgrimRouter=Router();pilgrimRouter.get('/pilgrim-routes',getPilgrimRoutes);pilgrimRouter.get('/pilgrim-routes/:slug',getPilgrimRoute);pilgrimRouter.get('/liturgy-schedules',getLiturgySchedules);pilgrimRouter.get('/useful-contacts',getUsefulContacts);pilgrimRouter.get('/etiquette-rules',getEtiquetteRules);

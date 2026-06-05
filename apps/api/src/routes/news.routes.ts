@@ -1,0 +1,2 @@
+import { Router } from 'express';import { getAnnouncements,getFAQs,getGallery,getNews,getNewsBySlug,submitContactMessage } from '../controllers/news.controller.js';
+export const newsRouter=Router();newsRouter.get('/news',getNews);newsRouter.get('/news/:slug',getNewsBySlug);newsRouter.get('/announcements',getAnnouncements);newsRouter.get('/gallery-images',getGallery);newsRouter.get('/faqs',getFAQs);newsRouter.post('/contact-messages',submitContactMessage);
