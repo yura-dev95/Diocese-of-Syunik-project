@@ -10,5 +10,7 @@ export const api = axios.create({
 
 api.interceptors.request.use((config) => {
   config.headers['Accept-Language'] = localStorage.getItem('syunik-diocese-locale') ?? 'hy';
+  const adminToken = localStorage.getItem('syunik-admin-token');
+  if (adminToken) config.headers.Authorization = `Bearer ${adminToken}`;
   return config;
 });

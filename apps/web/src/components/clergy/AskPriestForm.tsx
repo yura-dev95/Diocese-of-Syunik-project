@@ -1,6 +1,7 @@
 import { CheckCircle2, LockKeyhole } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { dioceseService } from '../../services/diocese.service';
+import { email, minLength } from '../../utils/validation';
 import { Button } from '../common/Button';
 import { FormInput, FormTextarea } from '../common/FormInput';
 
@@ -15,28 +16,25 @@ const initialState: FormState = { question: '', category: '', contactEmail: '', 
 
 export function AskPriestForm() {
   const [form, setForm] = useState(initialState);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [referenceId, setReferenceId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    setError('');
-    if (form.question.trim().length < 20) {
-      setError('Հարցը պետք է պարունակի առնվազն 20 նիշ։');
-      return;
-    }
-    if (form.contactEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.contactEmail)) {
-      setError('Մուտքագրեք վավեր էլեկտրոնային հասցե։');
-      return;
-    }
+    const nextErrors = {
+      question: minLength(form.question, 20, 'Հարցը պետք է պարունակի առնվազն 20 նիշ։'),
+      contactEmail: email(form.contactEmail),
+    };
+    setErrors(Object.fromEntries(Object.entries(nextErrors).filter(([, value]) => value)));
+    if (Object.values(nextErrors).some(Boolean)) return;
     setIsSubmitting(true);
     try {
       const result = await dioceseService.submitQuestion(form);
       setReferenceId(result.referenceId);
       setForm(initialState);
     } catch {
-      setError('Հարցը չհաջողվեց ուղարկել։ Խնդրում ենք փորձել կրկին։');
+      setErrors({ form: 'Հարցը չհաջողվեց ուղարկել։ Խնդրում ենք փորձել կրկին։' });
     } finally {
       setIsSubmitting(false);
     }
@@ -47,15 +45,16 @@ export function AskPriestForm() {
   }
 
   return (
-    <form className="border border-gold/25 bg-white/45 p-6 shadow-sacred sm:p-9" onSubmit={handleSubmit}>
+    <form className="card-surface p-6 sm:p-9" noValidate onSubmit={handleSubmit}>
       <div className="mb-7 flex gap-3 border border-gold/25 bg-parchment/65 p-4 text-xs leading-6 text-ink/60"><LockKeyhole className="mt-0.5 size-4 shrink-0 text-forest" /><p>Հարցերը հասանելի են միայն թեմի լիազորված պատասխանատուներին։ Ձեր էլեկտրոնային հասցեն երբեք չի հրապարակվի։</p></div>
       <div className="grid gap-5">
-        <FormTextarea error={error} label="Ձեր հարցը *" maxLength={2000} placeholder="Գրեք ձեր հոգևոր կամ եկեղեցական հարցը..." rows={7} value={form.question} onChange={(event) => setForm({ ...form, question: event.target.value })} />
+        <FormTextarea error={errors.question} label="Ձեր հարցը *" maxLength={2000} placeholder="Գրեք ձեր հոգևոր կամ եկեղեցական հարցը..." rows={7} value={form.question} onChange={(event) => setForm({ ...form, question: event.target.value })} />
         <div className="grid gap-5 sm:grid-cols-2">
           <FormInput label="Թեմա" maxLength={80} placeholder="Օրինակ՝ ընտանիք, աղոթք" value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value })} />
-          <FormInput label="Էլ. հասցե՝ պատասխան ստանալու համար" placeholder="email@example.com" type="email" value={form.contactEmail} onChange={(event) => setForm({ ...form, contactEmail: event.target.value })} />
+          <FormInput error={errors.contactEmail} label="Էլ. հասցե՝ պատասխան ստանալու համար" placeholder="email@example.com" type="email" value={form.contactEmail} onChange={(event) => setForm({ ...form, contactEmail: event.target.value })} />
         </div>
         <label className="flex cursor-pointer items-start gap-3 text-sm text-ink/65"><input checked={form.isAnonymous} className="mt-1 accent-royal" type="checkbox" onChange={(event) => setForm({ ...form, isAnonymous: event.target.checked })} /><span><strong className="text-episcopal">Ուղարկել անանուն</strong><br />Ձեր անունը չի պահանջվում և չի պահպանվում։</span></label>
+        {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
         <Button disabled={isSubmitting} type="submit">{isSubmitting ? 'Ուղարկվում է...' : 'Ուղարկել հարցը'}</Button>
       </div>
     </form>

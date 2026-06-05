@@ -2,20 +2,39 @@ import { lazy, Suspense } from 'react';
 import type { ComponentType } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { AppLayout } from '../components/layout/AppLayout';
-import { HomePage } from '../pages/HomePage';
-import { LoadingState } from '../components/common/LoadingState';
+import { AdminLayout } from '../components/admin/AdminLayout';
+import { RequireAdmin } from '../features/admin/RequireAdmin';
+import { PageLoader } from '../components/common/PageLoader';
+import { ErrorBoundary } from '../components/common/ErrorBoundary';
 
 function lazyPage(loader: () => Promise<Record<string, unknown>>, name: string) {
   const Page = lazy(async () => ({ default: (await loader())[name] as ComponentType<Record<string, never>> }));
-  return <Suspense fallback={<div className="mx-auto max-w-[1440px] px-5 py-24"><LoadingState /></div>}><Page /></Suspense>;
+  return <ErrorBoundary><Suspense fallback={<PageLoader />}><Page /></Suspense></ErrorBoundary>;
 }
 
 export const routes: RouteObject[] = [
   {
+    path: '/admin/login',
+    element: lazyPage(() => import('../pages/admin/AdminLoginPage'), 'AdminLoginPage'),
+  },
+  {
+    path: '/admin',
+    element: <RequireAdmin />,
+    children: [
+      {
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: lazyPage(() => import('../pages/admin/AdminDashboardPage'), 'AdminDashboardPage') },
+          { path: ':resource', element: lazyPage(() => import('../pages/admin/AdminResourcePage'), 'AdminResourcePage') },
+        ],
+      },
+    ],
+  },
+  {
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <HomePage /> },
+      { index: true, element: lazyPage(() => import('../pages/HomePage'), 'HomePage') },
       {
         path: 'heritage',
         element: lazyPage(() => import('../pages/HeritagePage'), 'HeritagePage'),

@@ -7,10 +7,14 @@ import { socialRouter } from './social.routes.js';
 import { spiritualRouter } from './spiritual.routes.js';
 import { pilgrimRouter } from './pilgrim.routes.js';
 import { newsRouter } from './news.routes.js';
+import { authRouter } from './auth.routes.js';
+import { adminRouter } from './admin.routes.js';
 
 export const apiRouter = Router();
 
 apiRouter.use('/health', healthRouter);
+apiRouter.use('/auth', authRouter);
+apiRouter.use('/admin', adminRouter);
 apiRouter.use('/churches', churchRouter);
 apiRouter.use('/library-items', libraryRouter);
 apiRouter.use('/', dioceseRouter);

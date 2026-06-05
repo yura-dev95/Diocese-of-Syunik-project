@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Check, ChevronDown, Languages, Menu, X } from 'lucide-react';
+import { Check, ChevronDown, KeyRound, Languages, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navigationItems } from '../../constants/navigation';
@@ -56,6 +56,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <NavLink
+            className="focus-ring hidden min-h-10 items-center gap-2 rounded-full bg-episcopal px-4 text-xs font-bold text-parchment transition hover:bg-royal sm:inline-flex"
+            to="/admin/login"
+            onClick={() => setIsOpen(false)}
+          >
+            <KeyRound className="size-3.5 text-gold" />
+            {t('admin.signIn')}
+          </NavLink>
           <div className="relative" ref={languageMenuRef}>
             <button
               aria-expanded={isLanguageOpen}
@@ -124,6 +132,14 @@ export function Header() {
             exit={{ height: 0, opacity: 0 }}
           >
             <div className="mx-auto flex max-w-[1440px] flex-col pt-3">
+              <NavLink
+                className="mb-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-episcopal px-4 text-sm font-bold text-parchment"
+                to="/admin/login"
+                onClick={() => setIsOpen(false)}
+              >
+                <KeyRound className="size-4 text-gold" />
+                {t('admin.signIn')}
+              </NavLink>
               {navigationItems.map((item) => (
                 <NavLink
                   key={item.href}

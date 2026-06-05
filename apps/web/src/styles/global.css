@@ -6,6 +6,7 @@
   html {
     scroll-behavior: smooth;
     background: #f5ecd7;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -19,6 +20,7 @@
     background-size: 32px 32px;
     font-family: Inter, "Noto Sans Armenian", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -27,15 +29,57 @@
     text-wrap: balance;
   }
 
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+
   button,
   a {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    color: #f5ecd7;
+    background: #561731;
   }
 }
 
 @layer components {
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-parchment;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  .card-surface {
+    @apply border border-gold/25 bg-white/45 shadow-sm backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white/60 hover:shadow-sacred;
+  }
+
+  .brand-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent;
+  }
+
+  .form-error {
+    @apply rounded-xl border border-royal/20 bg-royal/10 px-4 py-3 text-sm leading-6 text-royal;
   }
 }
 

@@ -1,4 +1,6 @@
+import 'dotenv/config';
 import { PrismaClient, type ChurchCategory, type LibraryCategory } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 import { churches } from '../src/data/churches.data.js';
 import { libraryItems } from '../src/data/library.data.js';
 import { clergyMembers, officialDocuments } from '../src/data/diocese.data.js';
@@ -7,9 +9,25 @@ import { choirs, feastDays, mediaItems, prayers, sacramentGuides, saints } from 
 import { etiquetteRules, liturgySchedules, pilgrimRoutes, usefulContacts } from '../src/data/pilgrim.data.js';
 import { announcements, faqs, galleryImages, newsArticles } from '../src/data/news.data.js';
 
+process.env.DATABASE_URL ??= 'postgresql://postgres:postgres@localhost:5433/syunik_diocese?schema=public';
+
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.user.upsert({
+    where: { email: 'admin@syunikdiocese.am' },
+    update: {
+      name: 'System Administrator',
+      role: 'ADMIN',
+    },
+    create: {
+      email: 'admin@syunikdiocese.am',
+      name: 'System Administrator',
+      role: 'ADMIN',
+      passwordHash: await bcrypt.hash('Admin12345!', 12),
+    },
+  });
+
   for (const church of churches) {
     await prisma.church.upsert({
       where: { slug: church.slug },
