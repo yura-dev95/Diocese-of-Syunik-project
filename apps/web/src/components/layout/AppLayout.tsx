@@ -9,7 +9,7 @@ export function AppLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen">
       <a className="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-episcopal" href="#main-content">
         Անցնել հիմնական բովանդակությանը
       </a>
