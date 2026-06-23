@@ -30,9 +30,9 @@ export function LibraryPage() {
         <Container>
           <div className="flex flex-col gap-5 border-y border-gold/25 py-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex gap-2 overflow-x-auto pb-2 lg:pb-0">
-              {categories.map((item) => <button className={`focus-ring shrink-0 rounded-full px-4 py-2.5 text-xs font-bold ${category === item.value ? 'bg-episcopal text-parchment' : 'border border-gold/30 text-episcopal'}`} key={item.label} onClick={() => setCategory(item.value)} type="button">{item.label}</button>)}
+              {categories.map((item) => <button className={`focus-ring shrink-0 rounded-md px-4 py-2.5 text-xs font-bold ${category === item.value ? 'bg-gold text-white' : 'border border-gold/30 bg-parchment/70 text-episcopal hover:bg-white/75'}`} key={item.label} onClick={() => setCategory(item.value)} type="button">{item.label}</button>)}
             </div>
-            <label className="relative block min-w-64"><Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-royal" /><span className="sr-only">Որոնել գրադարանում</span><input className="focus-ring h-12 w-full rounded-full border border-gold/35 bg-white/45 pl-11 pr-4 text-sm" placeholder="Որոնել վերնագրով կամ հեղինակով" value={search} onChange={(event) => setSearch(event.target.value)} /></label>
+            <label className="relative block min-w-64"><Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-royal" /><span className="sr-only">Որոնել գրադարանում</span><input className="focus-ring h-12 w-full rounded-md border border-gold/35 bg-parchment/80 pl-11 pr-4 text-sm" placeholder="Որոնել վերնագրով կամ հեղինակով" value={search} onChange={(event) => setSearch(event.target.value)} /></label>
           </div>
           <div className="mt-10">
             {isLoading && <LoadingState />}

@@ -9,7 +9,7 @@ interface EmptyStateProps {
 export function EmptyState({ title, description }: EmptyStateProps) {
   const { localize } = useI18n();
   return (
-    <div className="grid min-h-72 place-items-center border border-dashed border-gold/40 bg-white/30 px-6 text-center">
+    <div className="grid min-h-72 place-items-center rounded-md border border-dashed border-gold/40 bg-parchment/75 px-6 text-center">
       <div>
         <SearchX className="mx-auto size-9 text-gold" strokeWidth={1.5} />
         <h3 className="mt-5 font-display text-2xl font-bold text-episcopal">{localize(title)}</h3>

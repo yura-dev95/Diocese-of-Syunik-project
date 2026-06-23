@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Check, ChevronDown, KeyRound, Languages, Menu, X } from 'lucide-react';
+import { Check, ChevronDown, KeyRound, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navigationItems } from '../../constants/navigation';
@@ -11,9 +11,20 @@ import { LogoMark } from './LogoMark';
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const languageMenuRef = useRef<HTMLDivElement>(null);
   const { locale, setLocale, t } = useI18n();
   const activeLanguage = localeOptions.find((item) => item.code === locale) ?? localeOptions[0];
+
+  useEffect(() => {
+    function updateScrolledState() {
+      setIsScrolled(window.scrollY > 24);
+    }
+
+    updateScrolledState();
+    window.addEventListener('scroll', updateScrolledState, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrolledState);
+  }, []);
 
   useEffect(() => {
     function closeLanguageMenu(event: MouseEvent) {
@@ -27,25 +38,37 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/15 bg-parchment/95 backdrop-blur-xl">
-      <Container className="flex min-h-20 items-center justify-between gap-5">
-        <NavLink aria-label={t('nav.home')} className="focus-ring flex items-center gap-3 rounded-lg" to="/" onClick={() => setIsOpen(false)}>
-          <LogoMark />
+    <header
+      className={`sticky top-0 z-[80] border-b backdrop-blur-xl transition-all duration-300 ${
+        isScrolled
+          ? 'border-gold/25 bg-parchment/98 shadow-lg shadow-episcopal/10'
+          : 'border-transparent bg-parchment/95'
+      }`}
+    >
+      <Container className={`flex items-center justify-between gap-5 transition-all duration-300 ${isScrolled ? 'min-h-16' : 'min-h-24'}`}>
+        <NavLink aria-label={t('nav.home')} className="focus-ring flex items-center gap-5 rounded-lg" to="/" onClick={() => setIsOpen(false)}>
+          <LogoMark
+            className={`transition-all duration-300 ${
+              isScrolled
+                ? 'h-14 w-11 sm:h-16 sm:w-12'
+                : '-mb-14 -mt-4 h-36 w-28 sm:-mb-16 sm:-mt-5 sm:h-44 sm:w-[8.5rem]'
+            }`}
+          />
           <span className="leading-tight">
-            <span className="block font-display text-lg font-bold text-episcopal">{t('brand.name')}</span>
-            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-royal/70 sm:block">
+            <span className={`block font-display font-bold text-episcopal transition-all duration-300 ${isScrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'}`}>{t('brand.name')}</span>
+            <span className={`hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-royal/65 sm:block ${isScrolled ? 'sr-only' : ''}`}>
               {t('brand.subtitle')}
             </span>
           </span>
         </NavLink>
 
-        <nav aria-label={t('nav.main')} className="hidden items-center gap-5 xl:flex">
+        <nav aria-label={t('nav.main')} className="hidden items-center gap-7 xl:flex">
           {navigationItems.map((item) => (
             <NavLink
               key={item.href}
               className={({ isActive }) =>
-                `focus-ring rounded-md py-2 text-xs font-semibold transition hover:text-royal ${
-                  isActive ? 'text-royal' : 'text-ink/70'
+                `focus-ring relative rounded-md py-2 text-sm font-semibold transition hover:text-royal ${
+                  isActive ? 'text-royal after:absolute after:inset-x-1 after:-bottom-1 after:h-px after:bg-gold' : 'text-ink/80'
                 }`
               }
               to={item.href}
@@ -57,11 +80,11 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <NavLink
-            className="focus-ring hidden min-h-10 items-center gap-2 rounded-full bg-episcopal px-4 text-xs font-bold text-parchment transition hover:bg-royal sm:inline-flex"
+            className="focus-ring hidden min-h-10 items-center gap-2 rounded-full bg-gold px-4 text-xs font-bold text-white transition hover:bg-[#caa764] 2xl:inline-flex"
             to="/admin/login"
             onClick={() => setIsOpen(false)}
           >
-            <KeyRound className="size-3.5 text-gold" />
+            <KeyRound className="size-3.5 text-white" />
             {t('admin.signIn')}
           </NavLink>
           <div className="relative" ref={languageMenuRef}>
@@ -69,12 +92,11 @@ export function Header() {
               aria-expanded={isLanguageOpen}
               aria-haspopup="menu"
               aria-label={t('language.change')}
-              className="focus-ring flex min-h-10 items-center gap-1.5 rounded-full border border-gold/40 px-3 text-xs font-bold text-episcopal transition hover:border-gold hover:bg-gold/10"
+              className="focus-ring flex min-h-10 items-center gap-1.5 rounded-md px-2 text-sm font-bold text-episcopal transition hover:bg-gold/10"
               type="button"
               onClick={() => setIsLanguageOpen((current) => !current)}
             >
-              <Languages className="size-3.5 text-royal" />
-              {activeLanguage.shortLabel}
+              <span>{activeLanguage.code === 'hy' ? 'HY / EN' : activeLanguage.shortLabel}</span>
               <ChevronDown className={`size-3.5 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -91,7 +113,7 @@ export function Header() {
                   {localeOptions.map((item) => (
                     <button
                       className={`focus-ring flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-semibold transition ${
-                        locale === item.code ? 'bg-episcopal text-parchment' : 'text-episcopal hover:bg-gold/15'
+                        locale === item.code ? 'bg-gold text-white' : 'text-episcopal hover:bg-gold/15'
                       }`}
                       key={item.code}
                       role="menuitemradio"
@@ -103,7 +125,7 @@ export function Header() {
                       }}
                     >
                       <span>{item.label}</span>
-                      {locale === item.code && <Check className="size-4 text-gold" />}
+                      {locale === item.code && <Check className="size-4 text-white" />}
                     </button>
                   ))}
                 </motion.div>
@@ -113,7 +135,7 @@ export function Header() {
           <button
             aria-expanded={isOpen}
             aria-label={isOpen ? t('menu.close') : t('menu.open')}
-            className="focus-ring grid size-11 place-items-center rounded-full bg-episcopal text-parchment xl:hidden"
+            className="focus-ring grid size-11 place-items-center rounded-full bg-gold text-white xl:hidden"
             type="button"
             onClick={() => setIsOpen((current) => !current)}
           >
@@ -133,11 +155,11 @@ export function Header() {
           >
             <div className="mx-auto flex max-w-[1440px] flex-col pt-3">
               <NavLink
-                className="mb-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-episcopal px-4 text-sm font-bold text-parchment"
+                className="mb-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-4 text-sm font-bold text-white"
                 to="/admin/login"
                 onClick={() => setIsOpen(false)}
               >
-                <KeyRound className="size-4 text-gold" />
+                <KeyRound className="size-4 text-white" />
                 {t('admin.signIn')}
               </NavLink>
               {navigationItems.map((item) => (

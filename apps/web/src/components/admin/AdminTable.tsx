@@ -31,7 +31,7 @@ export function AdminTable({ config, items, onEdit, onDelete }: { config: AdminR
                     <button className="grid size-9 place-items-center rounded-full bg-gold/15 text-episcopal" type="button" onClick={() => onEdit(item)} aria-label="Edit">
                       <Edit className="size-4" />
                     </button>
-                    <button className="grid size-9 place-items-center rounded-full bg-royal/10 text-royal" type="button" onClick={() => onDelete(item)} aria-label="Delete">
+                    <button className="grid size-9 place-items-center rounded-full bg-gold/15 text-episcopal" type="button" onClick={() => onDelete(item)} aria-label="Delete">
                       <Trash2 className="size-4" />
                     </button>
                   </div>

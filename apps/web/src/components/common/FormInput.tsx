@@ -18,7 +18,7 @@ export function FormInput({ label, error, className = '', ...props }: FormInputP
       <input
         aria-describedby={error ? errorId : props['aria-describedby']}
         aria-invalid={Boolean(error)}
-        className={`focus-ring mt-2 min-h-12 w-full rounded-xl border bg-white/55 px-4 text-sm text-ink placeholder:text-ink/35 ${error ? 'border-royal' : 'border-gold/35'} ${className}`}
+        className={`focus-ring mt-2 min-h-12 w-full rounded-md border bg-parchment/85 px-4 text-sm text-ink placeholder:text-ink/35 ${error ? 'border-royal' : 'border-gold/35'} ${className}`}
         id={props.id ?? id}
         {...props}
         placeholder={placeholder}
@@ -45,7 +45,7 @@ export function FormTextarea({ label, error, className = '', ...props }: FormTex
       <textarea
         aria-describedby={error ? errorId : props['aria-describedby']}
         aria-invalid={Boolean(error)}
-        className={`focus-ring mt-2 w-full resize-y rounded-xl border bg-white/55 px-4 py-3 text-sm leading-7 text-ink placeholder:text-ink/35 ${error ? 'border-royal' : 'border-gold/35'} ${className}`}
+        className={`focus-ring mt-2 w-full resize-y rounded-md border bg-parchment/85 px-4 py-3 text-sm leading-7 text-ink placeholder:text-ink/35 ${error ? 'border-royal' : 'border-gold/35'} ${className}`}
         id={props.id ?? id}
         {...props}
         placeholder={placeholder}

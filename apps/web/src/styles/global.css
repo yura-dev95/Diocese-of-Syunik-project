@@ -15,9 +15,10 @@
     color: #261b1d;
     background-color: #f5ecd7;
     background-image:
-      linear-gradient(rgba(86, 23, 49, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(86, 23, 49, 0.02) 1px, transparent 1px);
-    background-size: 32px 32px;
+      radial-gradient(circle at 14% 0%, rgba(189, 151, 84, 0.12), transparent 32rem),
+      linear-gradient(rgba(86, 23, 49, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(86, 23, 49, 0.018) 1px, transparent 1px);
+    background-size: auto, 36px 36px, 36px 36px;
     font-family: Inter, "Noto Sans Armenian", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -71,7 +72,15 @@
   }
 
   .card-surface {
-    @apply border border-gold/25 bg-white/45 shadow-sm backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white/60 hover:shadow-sacred;
+    @apply rounded-md border border-gold/25 bg-parchment/80 shadow-sm shadow-episcopal/5 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white/70 hover:shadow-sacred;
+  }
+
+  .heritage-panel {
+    @apply rounded-md border border-gold/25 bg-parchment/85 shadow-sm shadow-episcopal/5;
+  }
+
+  .page-band {
+    @apply bg-parchment py-20 sm:py-28;
   }
 
   .brand-divider {
@@ -80,6 +89,13 @@
 
   .form-error {
     @apply rounded-xl border border-royal/20 bg-royal/10 px-4 py-3 text-sm leading-6 text-royal;
+  }
+}
+
+@layer utilities {
+  .bg-episcopal {
+    --tw-bg-opacity: 1;
+    background-color: rgb(189 151 84 / var(--tw-bg-opacity, 1));
   }
 }
 

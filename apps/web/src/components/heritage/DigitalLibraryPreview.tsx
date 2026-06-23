@@ -20,7 +20,7 @@ export function DigitalLibraryPreview() {
         </div>
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {items.map((item) => (
-            <AnimatedCard className="group border border-gold/25 bg-white/45 p-7 transition hover:bg-white/70 hover:shadow-sacred" key={item.title}>
+            <AnimatedCard className="group border border-gold/25 bg-parchment/80 p-7 transition hover:bg-white/75 hover:shadow-sacred" key={item.title}>
               <item.icon className="size-8 text-royal" strokeWidth={1.4} />
               <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.2em] text-gold">{item.type}</p>
               <h3 className="mt-3 font-display text-2xl font-bold text-episcopal">{item.title}</h3>

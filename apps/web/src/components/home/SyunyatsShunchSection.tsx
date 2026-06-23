@@ -47,7 +47,7 @@ export function SyunyatsShunchSection() {
               <div className="flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">{localize(latestPodcast.episode)} · {localize(latestPodcast.publishedAt)}</p>
-                  <button aria-label={localize('Կիսվել թողարկմամբ')} className="focus-ring rounded-full border border-parchment/15 p-2.5 text-parchment/60 transition hover:text-gold" type="button">
+                  <button aria-label={localize('Կիսվել թողարկմամբ')} className="focus-ring rounded-full border border-gold/40 p-2.5 text-gold transition hover:bg-gold hover:text-white" type="button">
                     <Share2 className="size-4" />
                   </button>
                 </div>

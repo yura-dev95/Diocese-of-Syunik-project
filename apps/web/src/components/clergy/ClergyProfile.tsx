@@ -30,7 +30,7 @@ export function ClergyProfile({ member }: { member: ClergyMember }) {
             <p className="mt-7 max-w-3xl leading-8 text-ink/65">{member.biography}</p>
           </article>
           <aside className="space-y-4">
-            {member.education && <div className="border border-gold/25 bg-white/45 p-6"><BookOpen className="size-6 text-royal" /><h3 className="mt-4 font-display text-xl font-bold text-episcopal">Կրթություն</h3><p className="mt-3 text-sm leading-7 text-ink/60">{member.education}</p></div>}
+            {member.education && <div className="border border-gold/25 bg-parchment/80 p-6"><BookOpen className="size-6 text-royal" /><h3 className="mt-4 font-display text-xl font-bold text-episcopal">Կրթություն</h3><p className="mt-3 text-sm leading-7 text-ink/60">{member.education}</p></div>}
             <div className="bg-forest p-6 text-parchment"><Mail className="size-6 text-gold" /><h3 className="mt-4 font-display text-xl font-bold">Հոգևոր հարց ունե՞ք</h3><p className="mt-3 text-sm leading-7 text-parchment/65">Հարցը կարող եք ուղարկել նաև ամբողջությամբ անանուն։</p><Button className="mt-6 w-full" href="/diocese/ask-a-priest" variant="light">Հարցրու քահանային</Button></div>
           </aside>
         </Container>

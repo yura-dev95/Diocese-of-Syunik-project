@@ -44,8 +44,8 @@ export function AdminResourceForm({ config, initialItem, onSubmit, onCancel }: {
       })}
       {error && <p className="rounded-xl bg-royal/10 p-3 text-sm text-royal">{error}</p>}
       <div className="flex justify-end gap-3 border-t border-slate-200 pt-5">
-        <button className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-bold" type="button" onClick={onCancel}>Cancel</button>
-        <button className="rounded-xl bg-episcopal px-4 py-2 text-sm font-bold text-white disabled:opacity-60" disabled={isSaving} type="submit">{isSaving ? 'Saving...' : 'Save'}</button>
+        <button className="rounded-xl border border-gold/50 px-4 py-2 text-sm font-bold text-episcopal" type="button" onClick={onCancel}>Cancel</button>
+        <button className="rounded-xl bg-gold px-4 py-2 text-sm font-bold text-white disabled:opacity-60" disabled={isSaving} type="submit">{isSaving ? 'Saving...' : 'Save'}</button>
       </div>
     </form>
   );

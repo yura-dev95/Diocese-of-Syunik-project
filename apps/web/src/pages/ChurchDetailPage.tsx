@@ -57,13 +57,13 @@ export function ChurchDetailPage() {
           </article>
           <aside className="space-y-4">
             {church.serviceSchedule && (
-              <div className="border border-gold/25 bg-white/45 p-6">
+              <div className="border border-gold/25 bg-parchment/80 p-6">
                 <CalendarDays className="size-6 text-royal" />
                 <h3 className="mt-4 font-display text-xl font-bold text-episcopal">Ժամերգության կարգ</h3>
                 <p className="mt-3 text-sm leading-7 text-ink/60">{church.serviceSchedule}</p>
               </div>
             )}
-            <div className="border border-gold/25 bg-white/45 p-6">
+            <div className="border border-gold/25 bg-parchment/80 p-6">
               <ShieldCheck className="size-6 text-forest" />
               <h3 className="mt-4 font-display text-xl font-bold text-episcopal">Այցելուի համար</h3>
               <p className="mt-3 text-sm leading-7 text-ink/60">{church.visitingNote}</p>

@@ -39,7 +39,7 @@ export function AdminLoginPage() {
         <label className="mt-8 grid gap-2 text-xs font-bold uppercase tracking-wide text-episcopal">Email<input className="min-h-12 rounded-xl border border-gold/35 bg-white/60 px-4 text-sm normal-case" value={email} onChange={(event) => setEmail(event.target.value)} /></label>
         <label className="mt-4 grid gap-2 text-xs font-bold uppercase tracking-wide text-episcopal">Password<input className="min-h-12 rounded-xl border border-gold/35 bg-white/60 px-4 text-sm normal-case" type="password" value={password} onChange={(event) => setPassword(event.target.value)} /></label>
         {error && <p className="mt-4 rounded-xl bg-royal/10 p-3 text-sm text-royal">{error}</p>}
-        <button className="mt-6 min-h-12 w-full rounded-xl bg-episcopal px-5 text-sm font-bold text-parchment disabled:opacity-60" disabled={isLoading} type="submit">{isLoading ? 'Signing in...' : 'Sign in'}</button>
+        <button className="mt-6 min-h-12 w-full rounded-xl bg-gold px-5 text-sm font-bold text-white disabled:opacity-60" disabled={isLoading} type="submit">{isLoading ? 'Signing in...' : 'Sign in'}</button>
         <p className="mt-4 text-xs leading-5 text-ink/45">Dev seed account: admin@syunikdiocese.am / Admin12345!</p>
       </form>
     </main>

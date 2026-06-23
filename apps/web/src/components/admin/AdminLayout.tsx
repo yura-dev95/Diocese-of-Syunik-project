@@ -26,7 +26,7 @@ export function AdminLayout() {
             </NavLink>
           ))}
         </nav>
-        <button className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50" type="button" onClick={logout}>
+        <button className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl border border-gold/50 px-3 py-2 text-sm font-bold text-episcopal hover:bg-slate-50" type="button" onClick={logout}>
           <LogOut className="size-4" /> Logout
         </button>
       </aside>
@@ -34,11 +34,11 @@ export function AdminLayout() {
         <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 px-5 py-4 backdrop-blur lg:hidden">
           <div className="flex items-center justify-between gap-4">
             <NavLink className="font-bold text-episcopal" to="/admin">Syunik Admin</NavLink>
-            <button className="rounded-full border px-3 py-1.5 text-xs font-bold" type="button" onClick={logout}>Logout</button>
+            <button className="rounded-full border border-gold/50 px-3 py-1.5 text-xs font-bold text-episcopal" type="button" onClick={logout}>Logout</button>
           </div>
           <nav className="mt-3 flex gap-2 overflow-x-auto pb-1">
-            <NavLink className="shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold" end to="/admin">Dashboard</NavLink>
-            {adminResources.map((resource) => <NavLink className="shrink-0 rounded-full border px-3 py-1.5 text-xs font-bold" key={resource.key} to={`/admin/${resource.key}`}>{resource.label}</NavLink>)}
+            <NavLink className="shrink-0 rounded-full border border-gold/50 px-3 py-1.5 text-xs font-bold text-episcopal" end to="/admin">Dashboard</NavLink>
+            {adminResources.map((resource) => <NavLink className="shrink-0 rounded-full border border-gold/50 px-3 py-1.5 text-xs font-bold text-episcopal" key={resource.key} to={`/admin/${resource.key}`}>{resource.label}</NavLink>)}
           </nav>
         </header>
         <main className="p-5 sm:p-8">

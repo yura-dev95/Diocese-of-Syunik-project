@@ -13,7 +13,7 @@ export function DailyGospelSection() {
   return (
     <section className="pb-24 sm:pb-32">
       <Container>
-        <AnimatedCard className="relative overflow-hidden border border-gold/25 bg-white/50 shadow-sacred">
+        <AnimatedCard className="relative overflow-hidden border border-gold/25 bg-parchment/85 shadow-sacred">
           <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
             <div className="relative min-h-72 overflow-hidden bg-royal p-8 text-parchment sm:p-10 lg:min-h-full">
               <div className="absolute -bottom-20 -right-20 size-64 rounded-full border border-gold/20" />

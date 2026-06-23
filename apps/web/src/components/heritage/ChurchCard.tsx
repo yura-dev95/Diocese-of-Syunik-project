@@ -7,7 +7,7 @@ import { Badge } from '../common/Badge';
 
 export function ChurchCard({ church }: { church: Church }) {
   return (
-    <AnimatedCard className="group overflow-hidden border border-gold/25 bg-white/45 shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-sacred">
+    <AnimatedCard className="group overflow-hidden border border-gold/25 bg-parchment/80 shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-sacred">
       <Link className="focus-ring block" to={`/heritage/churches/${church.slug}`}>
         <div className="relative aspect-[4/3] overflow-hidden bg-episcopal">
           <img

@@ -12,7 +12,8 @@ export function SectionTitle({ eyebrow, title, description, light = false }: Sec
 
   return (
     <div className="max-w-3xl">
-      <p className={`mb-4 text-xs font-bold uppercase tracking-[0.26em] ${light ? 'text-gold' : 'text-royal'}`}>
+      <p className={`mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] ${light ? 'text-gold' : 'text-royal'}`}>
+        <span className="h-px w-10 bg-current" />
         {localize(eyebrow)}
       </p>
       <h2 className={`font-display text-3xl leading-tight sm:text-4xl lg:text-5xl ${light ? 'text-parchment' : 'text-episcopal'}`}>

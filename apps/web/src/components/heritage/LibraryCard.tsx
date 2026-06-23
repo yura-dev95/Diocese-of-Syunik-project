@@ -9,7 +9,7 @@ const labels = { PDF: 'PDF գիրք', MANUSCRIPT: 'Ձեռագիր', ARTICLE: 'Գ
 export function LibraryCard({ item }: { item: LibraryItem }) {
   const Icon = icons[item.category];
   return (
-    <AnimatedCard className="group overflow-hidden border border-gold/25 bg-white/45 transition hover:-translate-y-1 hover:shadow-sacred">
+    <AnimatedCard className="group overflow-hidden border border-gold/25 bg-parchment/80 transition hover:-translate-y-1 hover:shadow-sacred">
       <div className="relative aspect-[4/3] overflow-hidden bg-episcopal">
         {item.coverUrl && <img alt="" className="size-full object-cover opacity-55 transition duration-700 group-hover:scale-105" loading="lazy" src={item.coverUrl} />}
         <div className="absolute inset-0 bg-gradient-to-t from-episcopal via-episcopal/20 to-transparent" />
@@ -22,7 +22,7 @@ export function LibraryCard({ item }: { item: LibraryItem }) {
         <p className="mt-3 line-clamp-2 text-sm leading-7 text-ink/60">{item.description}</p>
         <div className="mt-6 flex items-center justify-between border-t border-gold/20 pt-4 text-xs text-ink/50">
           <span>{item.publicationYear} · {item.pageCount} էջ</span>
-          <span className="grid size-9 place-items-center rounded-full bg-royal text-white"><Download className="size-4" /></span>
+          <span className="grid size-9 place-items-center rounded-full bg-gold text-white"><Download className="size-4" /></span>
         </div>
       </div>
     </AnimatedCard>
