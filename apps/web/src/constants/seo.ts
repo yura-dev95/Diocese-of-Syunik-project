@@ -20,7 +20,7 @@ export const seoByPath: Array<{ match: RegExp; seo: SeoConfig }> = [
   { match: /^\/social-impact/, seo: { title: 'Social Impact | Diocese of Syunik', description: 'Current social programs, transparency, donation intent flow, volunteering, success stories, and donor honor.' } },
   { match: /^\/spiritual-life/, seo: { title: 'Spiritual Life & Community | Diocese of Syunik', description: 'Prayer library, Bible search, saints, feast calendar, sacraments, sermons, choirs, and Syunyats Shunch.' } },
   { match: /^\/pilgrim-guide/, seo: { title: "Pilgrim's Guide | Diocese of Syunik", description: 'Practical pilgrimage routes, liturgy schedules, useful contacts, downloadable maps, and holy place etiquette.' } },
-  { match: /^\/news-contact/, seo: { title: 'News & Contact | Diocese of Syunik', description: 'News, announcements, gallery, FAQ, contact form, and public information from the Diocese of Syunik.' } },
+  { match: /^\/news-contact/, seo: { title: 'News & Contact | Diocese of Syunik', description: 'News, announcements, FAQ, contact form, and public information from the Diocese of Syunik.' } },
   { match: /^\/admin/, seo: { title: 'Admin Panel | Diocese of Syunik', description: 'Protected administration area for Diocese of Syunik content management.' } },
 ];
 

@@ -4,10 +4,16 @@ import { useI18n } from '../../i18n/I18nContext';
 import { AnimatedCard } from '../common/AnimatedCard';
 import { Container } from '../common/Container';
 
+const weekdayNames = {
+  hy: ['կիրակի', 'երկուշաբթի', 'երեքշաբթի', 'չորեքշաբթի', 'հինգշաբթի', 'ուրբաթ', 'շաբաթ'],
+  ru: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+  en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+};
+
 export function DailyGospelSection() {
   const today = new Date();
-  const { formatDate, localize } = useI18n();
-  const weekday = formatDate(today, { weekday: 'long' });
+  const { formatDate, locale, localize } = useI18n();
+  const weekday = weekdayNames[locale][today.getDay()];
   const date = formatDate(today, { day: 'numeric', month: 'long' });
 
   return (
@@ -20,7 +26,7 @@ export function DailyGospelSection() {
               <div className="absolute -bottom-8 -right-8 size-40 rounded-full border border-gold/20" />
               <CalendarDays className="size-7 text-gold" strokeWidth={1.4} />
               <p className="mt-10 text-xs font-bold uppercase tracking-[0.23em] text-gold">{localize('Օրվա Ավետարան')}</p>
-              <p className="mt-4 font-display text-4xl font-bold capitalize">{weekday}</p>
+              <p className="mt-4 font-display text-4xl font-bold">{weekday}</p>
               <p className="mt-2 text-sm text-parchment/60">{date}</p>
               <div className="mt-10 flex items-center gap-3 border-t border-parchment/15 pt-6 text-xs text-parchment/60">
                 <Cross className="size-4 text-gold" /> {localize('Ընթերցվածք՝ Հովհաննես 8։12–20')}

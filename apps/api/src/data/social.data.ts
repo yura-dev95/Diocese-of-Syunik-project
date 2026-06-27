@@ -4,7 +4,7 @@ export const socialPrograms: SocialProgramRecord[] = [
   {
     id: 'program-warm-home',
     slug: 'warm-home-border-families',
-    title: 'Տաք տուն՝ սահմանամերձ ընտանիքներին',
+    title: 'Տուն՝ սահմանամերձ ընտանիքներին',
     summary: 'Ջեռուցման և կենցաղային աջակցության ծրագիր Սյունիքի սահմանամերձ ընտանիքների համար։',
     description: 'Ծրագիրը տրամադրում է վառելիք, ջեռուցման անվտանգ սարքեր և անհրաժեշտ կենցաղային աջակցություն՝ ընտանիքների արժանապատիվ ու տաք ձմեռը ապահովելու համար։',
     coverUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=85',

@@ -31,7 +31,6 @@ const resources: Record<string, AdminResourceConfig> = {
   prayers: { label: 'Prayers', delegate: asDelegate(prisma.prayer), searchableFields: ['title', 'category', 'summary'] },
   saints: { label: 'Saints', delegate: asDelegate(prisma.saint), searchableFields: ['name', 'patronOf', 'biography'] },
   'library-items': { label: 'Library items', delegate: asDelegate(prisma.libraryItem), searchableFields: ['title', 'author', 'description'] },
-  gallery: { label: 'Gallery', delegate: asDelegate(prisma.galleryImage), searchableFields: ['alt', 'caption', 'category'], orderByField: 'createdAt' },
   faqs: { label: 'FAQs', delegate: asDelegate(prisma.fAQ), searchableFields: ['question', 'answer', 'category'] },
   'contact-messages': { label: 'Contact messages', delegate: asDelegate(prisma.contactMessage), searchableFields: ['fullName', 'email', 'subject', 'message'] },
   'volunteer-applications': { label: 'Volunteer applications', delegate: asDelegate(prisma.volunteerApplication), searchableFields: ['fullName', 'email', 'interests'] },

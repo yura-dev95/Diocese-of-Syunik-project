@@ -1,8 +1,11 @@
 import { HeartHandshake } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
 import { Button } from '../common/Button';
 import { PageHero } from '../common/PageHero';
 
 export function SocialHero() {
+  const { localize } = useI18n();
+
   return (
     <PageHero
       eyebrow="Հավատք՝ գործով"
@@ -11,8 +14,8 @@ export function SocialHero() {
       imageUrl="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2200&q=85"
       icon={HeartHandshake}
     >
-      <Button href="/social-impact/programs" variant="light">Աջակցել ծրագրին</Button>
-      <Button href="/social-impact/volunteer" className="border-parchment/30 text-parchment hover:bg-parchment/10" variant="secondary">Դառնալ կամավոր</Button>
+      <Button href="/social-impact/programs" variant="light">{localize('Աջակցել ծրագրին')}</Button>
+      <Button href="/social-impact/volunteer" className="border-parchment/30 text-parchment hover:bg-parchment/10" variant="secondary">{localize('Դառնալ կամավոր')}</Button>
     </PageHero>
   );
 }

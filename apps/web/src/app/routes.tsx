@@ -39,8 +39,8 @@ export const routes: RouteObject[] = [
         path: 'heritage',
         element: lazyPage(() => import('../pages/HeritagePage'), 'HeritagePage'),
       },
-      { path: 'heritage/churches', element: lazyPage(() => import('../pages/ChurchesPage'), 'ChurchesPage') },
-      { path: 'heritage/churches/:slug', element: lazyPage(() => import('../pages/ChurchDetailPage'), 'ChurchDetailPage') },
+      { path: 'churches', element: lazyPage(() => import('../pages/ChurchesPage'), 'ChurchesPage') },
+      { path: 'churches/:slug', element: lazyPage(() => import('../pages/ChurchDetailPage'), 'ChurchDetailPage') },
       {
         path: 'heritage/library',
         element: lazyPage(() => import('../pages/LibraryPage'), 'LibraryPage'),
@@ -87,7 +87,6 @@ export const routes: RouteObject[] = [
       },
       { path: 'news-contact/news/:slug', element: lazyPage(() => import('../pages/NewsDetailPage'), 'NewsDetailPage') },
       { path: 'news-contact/announcements', element: lazyPage(() => import('../pages/AnnouncementsPage'), 'AnnouncementsPage') },
-      { path: 'news-contact/gallery', element: lazyPage(() => import('../pages/GalleryPage'), 'GalleryPage') },
       { path: 'news-contact/faq', element: lazyPage(() => import('../pages/FAQPage'), 'FAQPage') },
       { path: 'news-contact/contact', element: lazyPage(() => import('../pages/ContactPage'), 'ContactPage') },
       { path: '*', element: lazyPage(() => import('../pages/NotFoundPage'), 'NotFoundPage') },

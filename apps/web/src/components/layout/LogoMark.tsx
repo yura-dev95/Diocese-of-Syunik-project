@@ -1,8 +1,8 @@
-import logoSrc from '../../assets/logo.png';
-
 interface LogoMarkProps {
   className?: string;
 }
+
+const logoSrc = '/images/uploads/syuniq-logo.webp';
 
 export function LogoMark({ className = '' }: LogoMarkProps) {
   return (

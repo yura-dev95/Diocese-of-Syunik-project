@@ -1,5 +1,7 @@
 import { type ReactNode, useEffect, useRef } from 'react';
 import { useI18n } from './I18nContext';
+import { locales } from './translations';
+import { localizeContent } from './content';
 
 const originalText = new WeakMap<Text, string>();
 const originalAttributes = new WeakMap<Element, Record<string, string>>();
@@ -8,6 +10,27 @@ const localizedAttributes = ['aria-label', 'alt', 'title', 'placeholder'];
 function shouldSkip(node: Node) {
   const element = node instanceof Element ? node : node.parentElement;
   return Boolean(element?.closest('script, style, code, pre, [data-no-localize]'));
+}
+
+function isKnownLocalizedValue(source: string, value: string) {
+  return locales.some((item) => localizeContent(source, item) === value);
+}
+
+function updateOriginalText(node: Text) {
+  const current = node.textContent ?? '';
+  const source = originalText.get(node);
+
+  if (!source) {
+    originalText.set(node, current);
+    return current;
+  }
+
+  if (current !== source && !isKnownLocalizedValue(source, current)) {
+    originalText.set(node, current);
+    return current;
+  }
+
+  return source;
 }
 
 export function ContentLocalizer({ children }: { children: ReactNode }) {
@@ -20,13 +43,15 @@ export function ContentLocalizer({ children }: { children: ReactNode }) {
 
     function localizeTextNode(node: Text) {
       if (shouldSkip(node)) return;
-      const source = originalText.get(node) ?? node.textContent ?? '';
-      if (!originalText.has(node)) originalText.set(node, source);
+      const source = updateOriginalText(node);
 
       const trimmed = source.trim();
       if (!trimmed) return;
 
-      node.textContent = source.replace(trimmed, localize(trimmed));
+      const nextText = source.replace(trimmed, localize(trimmed));
+      if (node.textContent !== nextText) {
+        node.textContent = nextText;
+      }
     }
 
     function localizeElementAttributes(element: Element) {
@@ -38,7 +63,10 @@ export function ContentLocalizer({ children }: { children: ReactNode }) {
         if (!current) return;
 
         if (!originals[attribute]) originals[attribute] = current;
-        element.setAttribute(attribute, localize(originals[attribute]));
+        const nextValue = localize(originals[attribute]);
+        if (element.getAttribute(attribute) !== nextValue) {
+          element.setAttribute(attribute, nextValue);
+        }
       });
 
       if (Object.keys(originals).length > 0 && !originalAttributes.has(element)) {
@@ -66,10 +94,16 @@ export function ContentLocalizer({ children }: { children: ReactNode }) {
           if (node instanceof Text) localizeTextNode(node);
           if (node instanceof Element) localizeTree(node);
         });
+        if (mutation.type === 'characterData' && mutation.target instanceof Text) {
+          localizeTextNode(mutation.target);
+        }
+        if (mutation.type === 'attributes' && mutation.target instanceof Element) {
+          localizeElementAttributes(mutation.target);
+        }
       });
     });
 
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, { attributes: true, attributeFilter: localizedAttributes, characterData: true, childList: true, subtree: true });
     return () => observer.disconnect();
   }, [locale, localize]);
 

@@ -36,7 +36,7 @@ export function ChurchDetailPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-episcopal via-episcopal/45 to-black/20" />
         <Container className="flex min-h-[68svh] items-end pb-14 pt-24">
           <div className="max-w-4xl">
-            <Link className="focus-ring mb-8 inline-flex items-center gap-2 rounded-full text-sm font-semibold text-parchment/75 hover:text-gold" to="/heritage/churches"><ArrowLeft className="size-4" /> Բոլոր սրբավայրերը</Link>
+            <Link className="focus-ring mb-8 inline-flex items-center gap-2 rounded-full text-sm font-semibold text-parchment/75 hover:text-gold" to="/churches"><ArrowLeft className="size-4" /> Բոլոր սրբավայրերը</Link>
             <div><Badge>{churchCategoryLabels[church.category]}</Badge></div>
             <h1 className="mt-5 font-display text-5xl font-bold text-parchment sm:text-7xl">{church.name}</h1>
             <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold text-parchment/70">

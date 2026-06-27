@@ -1,2 +1,35 @@
-import { Clock,MapPin } from 'lucide-react';import type { LiturgySchedule } from '../../types/pilgrim';
-export function ScheduleList({items}:{items:LiturgySchedule[]}){return <div className="grid gap-4">{items.map(item=><article className="border border-gold/25 bg-parchment/80 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6" key={item.id}><div><p className="text-[10px] font-bold uppercase tracking-[.16em] text-royal">{item.serviceType}</p><h3 className="mt-2 font-display text-xl font-bold text-episcopal">{item.churchName}</h3><p className="mt-2 flex items-center gap-1.5 text-xs text-ink/50"><MapPin className="size-3.5 text-gold"/>{item.settlement}</p>{item.note&&<p className="mt-3 text-xs text-ink/45">{item.note}</p>}</div><div className="mt-5 flex min-w-32 items-center gap-3 border-t border-gold/20 pt-4 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0"><Clock className="size-5 text-forest"/><div><p className="font-display text-xl font-bold text-episcopal">{item.timeLabel}</p><p className="text-xs text-ink/50">{item.dayLabel}</p></div></div></article>)}</div>}
+import { Clock, MapPin } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
+import type { LiturgySchedule } from '../../types/pilgrim';
+
+export function ScheduleList({ items }: { items: LiturgySchedule[] }) {
+  const { localize } = useI18n();
+
+  return (
+    <div className="grid gap-4">
+      {items.map((item) => (
+        <article
+          className="border border-gold/25 bg-parchment/80 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6"
+          key={item.id}
+        >
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[.16em] text-royal">{localize(item.serviceType)}</p>
+            <h3 className="mt-2 font-display text-xl font-bold text-episcopal">{localize(item.churchName)}</h3>
+            <p className="mt-2 flex items-center gap-1.5 text-xs text-ink/50">
+              <MapPin className="size-3.5 text-gold" />
+              {localize(item.settlement)}
+            </p>
+            {item.note && <p className="mt-3 text-xs text-ink/45">{localize(item.note)}</p>}
+          </div>
+          <div className="mt-5 flex min-w-32 items-center gap-3 border-t border-gold/20 pt-4 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+            <Clock className="size-5 text-forest" />
+            <div>
+              <p className="font-display text-xl font-bold text-episcopal">{item.timeLabel}</p>
+              <p className="text-xs text-ink/50">{localize(item.dayLabel)}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}

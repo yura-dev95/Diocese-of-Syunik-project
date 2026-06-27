@@ -2,6 +2,5 @@ import type { RequestHandler } from 'express';import { newsService } from '../se
 export const getNews:RequestHandler=(q,r)=>{const x=contentQuerySchema.safeParse(q.query);if(!x.success){r.status(400).json({status:'error'});return;}r.json({data:newsService.articles(x.data.search,x.data.category)});};
 export const getNewsBySlug:RequestHandler=(q,r)=>{const x=newsSlugSchema.safeParse(q.params.slug);const item=x.success?newsService.article(x.data):undefined;if(!item){r.status(404).json({status:'error',message:'News article not found'});return;}r.json({data:item});};
 export const getAnnouncements:RequestHandler=(_q,r)=>r.json({data:newsService.announcements()});
-export const getGallery:RequestHandler=(q,r)=>{const x=contentQuerySchema.safeParse(q.query);if(!x.success){r.status(400).json({status:'error'});return;}r.json({data:newsService.gallery(x.data.category)});};
 export const getFAQs:RequestHandler=(q,r)=>{const x=contentQuerySchema.safeParse(q.query);if(!x.success){r.status(400).json({status:'error'});return;}r.json({data:newsService.faqs(x.data.category)});};
 export const submitContactMessage:RequestHandler=(q,r)=>{const x=contactMessageSchema.safeParse(q.body);if(!x.success){r.status(400).json({status:'error',message:'Invalid contact message',issues:x.error.flatten().fieldErrors});return;}r.status(201).json({data:newsService.submitContact()});};

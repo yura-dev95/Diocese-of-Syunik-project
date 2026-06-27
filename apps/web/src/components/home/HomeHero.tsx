@@ -1,35 +1,30 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Church, FileText, Sparkles, UserRound } from 'lucide-react';
+import { HeartHandshake, MapPinned, UserRound } from 'lucide-react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import heroImageUrl from '../../assets/tatev.jpg';
 import { useI18n } from '../../i18n/I18nContext';
 import { Container } from '../common/Container';
 
+const heroImageUrl = '/images/uploads/home-tatev.jpg';
+
 const quickLinks = [
-  {
-    href: '/heritage',
-    icon: Church,
-    title: 'Եկեղեցիներ',
-    description: 'Բոլոր սրբավայրերը',
-  },
-  {
-    href: '/news-contact',
-    icon: FileText,
-    title: 'Նորություններ',
-    description: 'Թեմի լուրեր',
-  },
-  {
-    href: '/spiritual-life',
-    icon: Sparkles,
-    title: 'Միջոցառումներ',
-    description: 'Օրացույց',
-  },
   {
     href: '/diocese',
     icon: UserRound,
-    title: 'Հոգևորականներ',
-    description: 'Ցանկ',
+    title: 'Թեմ և հոգևորականներ',
+    description: 'Հոգևորականներ',
+  },
+  {
+    href: '/social-impact',
+    icon: HeartHandshake,
+    title: 'Սոցիալական առաքելություն',
+    description: 'Ծրագրեր',
+  },
+  {
+    href: '/pilgrim-guide',
+    icon: MapPinned,
+    title: 'Ուխտավորի ուղեցույց',
+    description: 'Երթուղիներ',
   },
 ];
 
@@ -37,7 +32,7 @@ export function HomeHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
-  const { localize } = useI18n();
+  const { localize, t } = useI18n();
 
   return (
     <section ref={ref} className="relative isolate overflow-hidden bg-parchment pb-24 pt-2 sm:pb-28 lg:pb-32">
@@ -85,22 +80,22 @@ export function HomeHero() {
                   {localize('Սյունյաց թեմ')}
                 </h1>
                 <p className="mt-5 font-display text-2xl font-semibold uppercase leading-tight text-parchment sm:text-3xl">
-                  {localize('Հայ Առաքելական Սուրբ Եկեղեցի')}
+                  {t('home.hero.subtitle')}
                 </p>
                 <p className="mt-8 max-w-xl text-lg font-semibold leading-8 text-parchment/90 sm:text-xl">
-                  {localize('Մեր համայնքով, մեր սրբավայրերով, մեր հավատքով Քրիստոսում ենք մեկ։')}
+                  {t('home.hero.description')}
                 </p>
                 <Link
                   className="focus-ring mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-gold px-8 text-base font-bold text-white shadow-lg shadow-episcopal/25 transition hover:bg-[#caa764]"
                   to="/diocese"
                 >
-                  {localize('Կարդալ ավելին')}
+                  {t('home.hero.readMore')}
                 </Link>
               </motion.div>
             </div>
           </motion.div>
 
-          <div className="relative z-20 mx-auto -mt-14 grid max-w-6xl overflow-hidden rounded-md border border-gold/20 bg-parchment/95 shadow-xl shadow-episcopal/10 backdrop-blur md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative z-20 mx-auto -mt-14 grid max-w-6xl overflow-hidden rounded-md border border-gold/20 bg-parchment/95 shadow-xl shadow-episcopal/10 backdrop-blur md:grid-cols-2 lg:grid-cols-3">
             {quickLinks.map((item, index) => {
               const Icon = item.icon;
 

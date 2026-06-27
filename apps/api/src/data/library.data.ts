@@ -1,5 +1,7 @@
 import type { LibraryItemRecord } from '../types/library.types.js';
 
+const tatevImage = '/images/uploads/tatev.jpg';
+
 export const libraryItems: LibraryItemRecord[] = [
   {
     id: 'library-tatev-manuscripts',
@@ -8,7 +10,7 @@ export const libraryItems: LibraryItemRecord[] = [
     author: 'Սյունյաց թեմի արխիվ',
     description: 'Թվայնացված ընտրանի Տաթևի դպրոցի ձեռագրերից և մանրանկարներից։',
     category: 'MANUSCRIPT',
-    coverUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=85',
+    coverUrl: tatevImage,
     publicationYear: 1378,
     pageCount: 84,
     language: 'Հայերեն',

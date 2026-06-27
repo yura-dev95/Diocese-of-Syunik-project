@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { ComponentType, PropsWithChildren } from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 import { Container } from './Container';
 
 interface PageHeroProps extends PropsWithChildren {
@@ -11,6 +12,8 @@ interface PageHeroProps extends PropsWithChildren {
 }
 
 export function PageHero({ eyebrow, title, description, imageUrl, icon: Icon, children }: PageHeroProps) {
+  const { localize } = useI18n();
+
   return (
     <section className="bg-parchment pb-10 pt-2">
       <Container>
@@ -34,12 +37,12 @@ export function PageHero({ eyebrow, title, description, imageUrl, icon: Icon, ch
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-gold">
-                {Icon && <Icon className="size-4" />} {eyebrow}
+                {Icon && <Icon className="size-4" />} {localize(eyebrow)}
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-tight text-parchment sm:text-6xl lg:text-7xl">
-                {title}
+                {localize(title)}
               </h1>
-              {description && <p className="mt-6 max-w-2xl text-base leading-8 text-parchment/78 sm:text-lg">{description}</p>}
+              {description && <p className="mt-6 max-w-2xl text-base leading-8 text-parchment/78 sm:text-lg">{localize(description)}</p>}
               {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
             </motion.div>
           </Container>

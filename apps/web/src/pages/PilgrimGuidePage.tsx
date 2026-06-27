@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container } from '../components/common/Container';
 import { PageHero } from '../components/common/PageHero';
 import { PilgrimNavigation } from '../components/pilgrim/PilgrimNavigation';
+import { useI18n } from '../i18n/I18nContext';
 
 const actions = [
   ['/pilgrim-guide/routes', 'Պլանավորել երթուղի', 'Մեկօրյա ուխտագնացություններ և ճանապարհի հստակ քայլեր։', Map],
@@ -12,13 +13,15 @@ const actions = [
 ] as const;
 
 export function PilgrimGuidePage() {
+  const { localize } = useI18n();
+
   return (
     <>
       <PageHero
         eyebrow="Ճանապարհ դեպի սրբավայրեր"
         title="Ուխտավորի ուղեցույց"
         description="Ամենակարևոր տեղեկությունը՝ երթուղուց մինչև պատարագի ժամ, պարզ և հասանելի մեկ տեղում։"
-        imageUrl="https://images.unsplash.com/photo-1605537964076-3cb0ea2ff329?auto=format&fit=crop&w=2200&q=85"
+        imageUrl="/images/uploads/tatev.jpg"
         icon={MapPinned}
       />
       <PilgrimNavigation />
@@ -32,8 +35,8 @@ export function PilgrimGuidePage() {
                 to={to}
               >
                 <Icon className="size-7 text-gold" />
-                <h2 className="mt-6 font-display text-2xl font-bold text-episcopal">{title}</h2>
-                <p className="mt-3 text-sm leading-7 text-ink/60">{text}</p>
+                <h2 className="mt-6 font-display text-2xl font-bold text-episcopal">{localize(title)}</h2>
+                <p className="mt-3 text-sm leading-7 text-ink/60">{localize(text)}</p>
               </Link>
             ))}
           </div>

@@ -1,14 +1,16 @@
 import { Edit, Trash2 } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
 import type { AdminResourceConfig } from '../../types/admin';
 
-function formatValue(value: unknown) {
+function formatValue(value: unknown, formatDate: (value: Date | string, options?: Intl.DateTimeFormatOptions) => string) {
   if (value === null || value === undefined || value === '') return '—';
   if (typeof value === 'boolean') return value ? 'Yes' : 'No';
-  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value)) return new Date(value).toLocaleDateString();
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value)) return formatDate(value);
   return String(value);
 }
 
 export function AdminTable({ config, items, onEdit, onDelete }: { config: AdminResourceConfig; items: Record<string, unknown>[]; onEdit: (item: Record<string, unknown>) => void; onDelete: (item: Record<string, unknown>) => void }) {
+  const { formatDate } = useI18n();
   const extraFields = config.fields.slice(0, 3).map((field) => field.name).filter((field) => field !== config.titleField);
   const columns = [config.titleField, ...extraFields, 'status', 'updatedAt'].filter((field, index, all) => all.indexOf(field) === index);
 
@@ -25,7 +27,7 @@ export function AdminTable({ config, items, onEdit, onDelete }: { config: AdminR
           <tbody className="divide-y divide-slate-100">
             {items.map((item) => (
               <tr className="hover:bg-slate-50" key={String(item.id)}>
-                {columns.map((column) => <td className="max-w-xs truncate px-4 py-3 text-slate-700" key={column}>{formatValue(item[column])}</td>)}
+                {columns.map((column) => <td className="max-w-xs truncate px-4 py-3 text-slate-700" key={column}>{formatValue(item[column], formatDate)}</td>)}
                 <td className="px-4 py-3">
                   <div className="flex justify-end gap-2">
                     <button className="grid size-9 place-items-center rounded-full bg-gold/15 text-episcopal" type="button" onClick={() => onEdit(item)} aria-label="Edit">

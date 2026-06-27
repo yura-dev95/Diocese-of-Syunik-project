@@ -1,7 +1,17 @@
 import { ArrowUpRight } from 'lucide-react';
 import { useSuccessStories } from '../../hooks/useSocialData';
+import { useI18n } from '../../i18n/I18nContext';
 import { AnimatedCard } from '../common/AnimatedCard';
 import { Container } from '../common/Container';
 import { SectionTitle } from '../common/SectionTitle';
 
-export function SuccessStories() { const { data } = useSuccessStories(); return <section className="py-24 sm:py-32"><Container><SectionTitle eyebrow="Հաջողության պատմություններ" title="Փոփոխություն՝ մարդկանց կյանքում" /><div className="mt-12 grid gap-5 lg:grid-cols-3">{data?.map((story) => <AnimatedCard className="group overflow-hidden border border-gold/25 bg-parchment/80" key={story.id}><div className="relative aspect-[4/3] overflow-hidden bg-forest"><img alt={story.title} className="size-full object-cover opacity-75 transition duration-700 group-hover:scale-105" loading="lazy" src={story.imageUrl} /><div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-transparent" /><span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] text-episcopal">{story.impactLabel}</span></div><div className="p-6"><h3 className="font-display text-2xl font-bold text-episcopal">{story.title}</h3><p className="mt-3 text-sm leading-7 text-ink/60">{story.summary}</p><span className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-royal">Կարդալ պատմությունը <ArrowUpRight className="size-3.5" /></span></div></AnimatedCard>)}</div></Container></section>; }
+export function SuccessStories() {
+  const { data } = useSuccessStories();
+  const { localize } = useI18n();
+
+  return <section className="py-24 sm:py-32"><Container><SectionTitle eyebrow="Հաջողության պատմություններ" title="Փոփոխություն՝ մարդկանց կյանքում" /><div className="mt-12 grid gap-5 lg:grid-cols-3">{data?.map((story) => {
+    const title = localize(story.title);
+
+    return <AnimatedCard className="group overflow-hidden border border-gold/25 bg-parchment/80" key={story.id}><div className="relative aspect-[4/3] overflow-hidden bg-forest"><img alt={title} className="size-full object-cover opacity-75 transition duration-700 group-hover:scale-105" loading="lazy" src={story.imageUrl} /><div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-transparent" /><span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] text-episcopal">{localize(story.impactLabel)}</span></div><div className="p-6"><h3 className="font-display text-2xl font-bold text-episcopal">{title}</h3><p className="mt-3 text-sm leading-7 text-ink/60">{localize(story.summary)}</p><span className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-royal">{localize('Կարդալ պատմությունը')} <ArrowUpRight className="size-3.5" /></span></div></AnimatedCard>;
+  })}</div></Container></section>;
+}

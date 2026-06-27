@@ -15,7 +15,7 @@ export function FeaturedChurches() {
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionTitle eyebrow="Նշանավոր սրբավայրեր" title="Ժառանգության կենդանի վկաները" description="Յուրաքանչյուր սրբավայր պահպանում է Սյունյաց աշխարհի հավատի, կրթության և համայնքային կյանքի մի էջ։" />
-          <Link className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-bold text-royal" to="/heritage/churches">Տեսնել ամբողջ շտեմարանը <ArrowRight className="size-4" /></Link>
+          <Link className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-bold text-royal" to="/churches">Տեսնել ամբողջ շտեմարանը <ArrowRight className="size-4" /></Link>
         </div>
         <div className="mt-12">
           {isLoading ? <LoadingState /> : <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{featured.map((church) => <ChurchCard church={church} key={church.id} />)}</div>}

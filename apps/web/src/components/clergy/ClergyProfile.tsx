@@ -6,16 +6,16 @@ import { Container } from '../common/Container';
 export function ClergyProfile({ member }: { member: ClergyMember }) {
   return (
     <>
-      <section className="bg-episcopal py-16 text-parchment sm:py-24">
+      <section className="bg-[rgb(245_236_215/var(--tw-bg-opacity,1))] py-16 text-[#561731] sm:py-24">
         <Container className="grid items-center gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-t-[10rem] border border-gold/30">
             <img alt={member.fullName} className="size-full object-cover opacity-85" src={member.imageUrl} />
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">{member.title}</p>
-            <h1 className="mt-5 font-display text-5xl font-bold sm:text-7xl">{member.fullName}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-parchment/70">{member.ministryFocus}</p>
-            <div className="mt-8 flex flex-wrap gap-5 text-sm text-parchment/65">
+            <h1 className="mt-5 font-display text-5xl font-bold text-[#561731] sm:text-7xl">{member.fullName}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#561731]/70">{member.ministryFocus}</p>
+            <div className="mt-8 flex flex-wrap gap-5 text-sm text-[#561731]/65">
               {member.ordinationYear && <span className="flex items-center gap-2"><CalendarDays className="size-4 text-gold" />Ձեռնադրություն՝ {member.ordinationYear}</span>}
               {member.church && <span className="flex items-center gap-2"><MapPin className="size-4 text-gold" />{member.church.name}</span>}
             </div>

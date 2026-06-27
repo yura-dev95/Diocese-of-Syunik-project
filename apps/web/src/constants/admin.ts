@@ -33,9 +33,6 @@ export const adminResources: AdminResourceConfig[] = [
   { key: 'library-items', label: 'Library Items', titleField: 'title', descriptionField: 'author', fields: [
     { name: 'slug', label: 'Slug', required: true }, { name: 'title', label: 'Title', required: true }, { name: 'author', label: 'Author' }, { name: 'description', label: 'Description', type: 'textarea' }, { name: 'category', label: 'Category', type: 'select', options: ['PDF', 'MANUSCRIPT', 'ARTICLE'] }, { name: 'publicationYear', label: 'Publication year', type: 'number' }, { name: 'pageCount', label: 'Page count', type: 'number' }, { name: 'language', label: 'Language' }, { name: 'fileUrl', label: 'File URL' }, { name: 'coverUrl', label: 'Cover URL' }, { name: 'status', label: 'Status', type: 'select', options: contentStatuses },
   ] },
-  { key: 'gallery', label: 'Gallery', titleField: 'alt', descriptionField: 'category', fields: [
-    { name: 'url', label: 'Image URL', required: true }, { name: 'alt', label: 'Alt text', required: true }, { name: 'caption', label: 'Caption' }, { name: 'category', label: 'Category' }, { name: 'sortOrder', label: 'Sort order', type: 'number' },
-  ] },
   { key: 'faqs', label: 'FAQs', titleField: 'question', descriptionField: 'category', fields: [
     { name: 'question', label: 'Question', type: 'textarea', required: true }, { name: 'answer', label: 'Answer', type: 'textarea', required: true }, { name: 'category', label: 'Category' }, { name: 'sortOrder', label: 'Sort order', type: 'number' }, { name: 'status', label: 'Status', type: 'select', options: contentStatuses },
   ] },

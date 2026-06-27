@@ -5,7 +5,7 @@ import { Container } from '../common/Container';
 
 const links = [
   { to: '/heritage', labelKey: 'heritage.overview' as const, icon: History, end: true },
-  { to: '/heritage/churches', labelKey: 'heritage.churches' as const, icon: Church },
+  { to: '/churches', labelKey: 'heritage.churches' as const, icon: Church },
   { to: '/heritage/library', labelKey: 'heritage.library' as const, icon: BookOpen },
 ];
 

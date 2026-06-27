@@ -1,4 +1,4 @@
-import { ShieldCheck } from 'lucide-react';
+import { Cross } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../features/admin/AdminAuthContext';
@@ -31,8 +31,10 @@ export function AdminLoginPage() {
   return (
     <main className="grid min-h-screen place-items-center bg-episcopal px-5 py-12">
       <form className="w-full max-w-md rounded-3xl bg-parchment p-8 shadow-2xl" onSubmit={submit}>
-        <div className="grid size-14 place-items-center rounded-2xl bg-episcopal text-gold">
-          <ShieldCheck className="size-7" />
+        <div className="grid size-20 place-items-center rounded-full bg-gold shadow-lg shadow-gold/25">
+          <span className="grid size-16 place-items-center rounded-full border-2 border-white text-white">
+            <Cross className="size-8 text-white" strokeWidth={2.6} />
+          </span>
         </div>
         <h1 className="mt-6 font-display text-4xl font-bold text-episcopal">Admin Login</h1>
         <p className="mt-3 text-sm leading-6 text-ink/60">Protected management area for Diocese content and submissions.</p>

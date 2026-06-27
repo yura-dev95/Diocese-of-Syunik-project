@@ -11,16 +11,16 @@ const eras = [
 
 export function HistoryTimeline() {
   return (
-    <section className="bg-episcopal py-24 sm:py-32">
-      <Container>
-        <SectionTitle eyebrow="Պատմական ակնարկ" title="Տասնյոթ դար՝ հավատքի ճանապարհով" light />
-        <div className="mt-14 grid gap-px overflow-hidden border border-parchment/10 bg-parchment/10 md:grid-cols-2 xl:grid-cols-4">
+    <section className="bg-[rgb(245_236_215/var(--tw-bg-opacity,1))] py-24 sm:py-32">
+      <Container className="text-[#561731]">
+        <SectionTitle eyebrow="Պատմական ակնարկ" title="Տասնյոթ դար՝ հավատքի ճանապարհով" />
+        <div className="mt-14 grid gap-px overflow-hidden border border-gold/25 bg-gold/20 md:grid-cols-2 xl:grid-cols-4">
           {eras.map((era, index) => (
-            <AnimatedCard className="relative bg-episcopal p-7 sm:p-9" key={era.period}>
-              <span className="font-display text-5xl text-gold/20">0{index + 1}</span>
+            <AnimatedCard className="relative bg-parchment/80 p-7 sm:p-9" key={era.period}>
+              <span className="font-display text-5xl text-gold/35">0{index + 1}</span>
               <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-gold">{era.period}</p>
-              <h3 className="mt-4 font-display text-2xl font-bold text-parchment">{era.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-parchment/60">{era.text}</p>
+              <h3 className="mt-4 font-display text-2xl font-bold text-[#561731]">{era.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-[#561731]/65">{era.text}</p>
             </AnimatedCard>
           ))}
         </div>
