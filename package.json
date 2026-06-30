@@ -7,8 +7,10 @@
   ],
   "scripts": {
     "dev": "concurrently -n WEB,API -c magenta,green \"npm run dev -w @syunik/web\" \"npm run dev -w @syunik/api\"",
+    "dev:mobile": "npm run start -w @syunik/mobile",
+    "dev:all": "concurrently -n WEB,API,MOBILE -c magenta,green,cyan \"npm run dev -w @syunik/web\" \"npm run dev -w @syunik/api\" \"npm run start -w @syunik/mobile\"",
     "build": "npm run build -w @syunik/web && npm run build -w @syunik/api",
-    "typecheck": "npm run typecheck -w @syunik/web && npm run typecheck -w @syunik/api",
+    "typecheck": "npm run typecheck -w @syunik/web && npm run typecheck -w @syunik/api && npm run typecheck -w @syunik/mobile",
     "prisma:generate": "npm run prisma:generate -w @syunik/api"
   },
   "devDependencies": {

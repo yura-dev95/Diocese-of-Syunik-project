@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Diocese of Syunik",
+    "slug": "diocese-of-syunik",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "syunikdiocese",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "am.syunik.diocese"
+    },
+    "android": {
+      "package": "am.syunik.diocese",
+      "adaptiveIcon": {
+        "backgroundColor": "#f7f2e8"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "local-development"
+      }
+    }
+  }
+}
