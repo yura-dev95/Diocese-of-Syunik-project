@@ -42,7 +42,7 @@ export function PageHero({ eyebrow, title, description, imageUrl, icon: Icon, ch
               <h1 className="mt-5 font-display text-4xl font-bold leading-tight text-parchment sm:text-6xl lg:text-7xl">
                 {localize(title)}
               </h1>
-              {description && <p className="mt-6 max-w-2xl text-base leading-8 text-parchment/78 sm:text-lg">{localize(description)}</p>}
+              {description && <p className="mt-6 max-w-2xl text-base font-semibold leading-8 text-parchment sm:text-lg">{localize(description)}</p>}
               {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
             </motion.div>
           </Container>
