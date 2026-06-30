@@ -41,7 +41,7 @@ export function AskPriestForm() {
   }
 
   if (referenceId) {
-    return <div className="border border-forest/30 bg-white/55 p-8 text-center"><CheckCircle2 className="mx-auto size-10 text-forest" /><h2 className="mt-5 font-display text-3xl font-bold text-episcopal">Ձեր հարցն ընդունված է</h2><p className="mt-4 text-sm leading-7 text-ink/60">Հարցը կդիտարկվի գաղտնիությամբ։ Հղման համարը՝ <strong>{referenceId.slice(0, 8)}</strong></p><Button className="mt-7" onClick={() => setReferenceId('')}>Ուղարկել մեկ այլ հարց</Button></div>;
+    return <div className="border border-forest/30 bg-parchment/85 p-8 text-center"><CheckCircle2 className="mx-auto size-10 text-forest" /><h2 className="mt-5 font-display text-3xl font-bold text-episcopal">Ձեր հարցն ընդունված է</h2><p className="mt-4 text-sm leading-7 text-ink/60">Հարցը կդիտարկվի գաղտնիությամբ։ Հղման համարը՝ <strong>{referenceId.slice(0, 8)}</strong></p><Button className="mt-7" onClick={() => setReferenceId('')}>Ուղարկել մեկ այլ հարց</Button></div>;
   }
 
   return (

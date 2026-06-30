@@ -8,9 +8,8 @@ export interface NavigationItem {
 export const navigationItems: NavigationItem[] = [
   { labelKey: 'nav.home', href: '/' },
   { labelKey: 'nav.heritage', href: '/heritage' },
-  { labelKey: 'nav.diocese', href: '/diocese' },
-  { labelKey: 'nav.social', href: '/social-impact' },
-  { labelKey: 'nav.spiritual', href: '/spiritual-life' },
-  { labelKey: 'nav.pilgrim', href: '/pilgrim-guide' },
-  { labelKey: 'nav.news', href: '/news-contact' },
+  { labelKey: 'nav.churches', href: '/churches' },
+  { labelKey: 'nav.clergy', href: '/diocese/clergy' },
+  { labelKey: 'nav.quickNews', href: '/news-contact' },
+  { labelKey: 'nav.events', href: '/spiritual-life' },
 ];

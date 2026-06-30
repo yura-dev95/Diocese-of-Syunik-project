@@ -1,5 +1,13 @@
 import type { ChurchRecord } from '../types/church.types.js';
 
+const tatevImage = '/images/uploads/tatev.jpg';
+const vahanavankImage = '/images/uploads/vahanavank.jpg';
+const vorotnavankImage = '/images/uploads/vorotnavank.webp';
+const saintGregoryImage = '/images/uploads/saint-gregory-illuminator.jpg';
+const tanahatImage = '/images/uploads/tanahat.webp';
+const stStepanosImage = '/images/uploads/st-stepanos.webp';
+const saintMinasImage = '/images/uploads/saint-minas.jpg';
+
 export const churches: ChurchRecord[] = [
   {
     id: 'church-tatev',
@@ -12,17 +20,16 @@ export const churches: ChurchRecord[] = [
     summary: 'Սյունյաց աշխարհի հոգևոր, կրթական և մշակութային հզոր կենտրոնը։',
     description:
       'Տաթևի վանական համալիրը դարեր շարունակ եղել է Սյունյաց աշխարհի հոգևոր սիրտը։ Այստեղ գործել է միջնադարյան Հայաստանի նշանավոր համալսարաններից մեկը, ստեղծվել են ձեռագրեր և ձևավորվել աստվածաբանական միտք։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1605537964076-3cb0ea2ff329?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: tatevImage,
     latitude: 39.3792,
     longitude: 46.2505,
     isFeatured: true,
     visitingNote: 'Համալիրը բաց է ամեն օր։ Խնդրում ենք պահպանել սրբավայրին պատշաճ լռություն։',
     serviceSchedule: 'Սուրբ Պատարագ՝ կիրակի, 11։00',
     gallery: [
-      { id: 'tatev-1', url: 'https://images.unsplash.com/photo-1605537964076-3cb0ea2ff329?auto=format&fit=crop&w=1600&q=85', alt: 'Տաթևի վանական համալիրը' },
-      { id: 'tatev-2', url: 'https://images.unsplash.com/photo-1568322503342-2b9c7f5efb1b?auto=format&fit=crop&w=1400&q=85', alt: 'Վանական համալիր և լեռներ' },
-      { id: 'tatev-3', url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=85', alt: 'Տաթևի ճարտարապետական մանրամասներ' },
+      { id: 'tatev-1', url: tatevImage, alt: 'Տաթևի վանական համալիրը' },
+      { id: 'tatev-2', url: tatevImage, alt: 'Վանական համալիր և լեռներ' },
+      { id: 'tatev-3', url: tatevImage, alt: 'Տաթևի ճարտարապետական մանրամասներ' },
     ],
   },
   {
@@ -36,16 +43,15 @@ export const churches: ChurchRecord[] = [
     summary: 'Ողջի գետի հովտում գտնվող Սյունյաց իշխանական վանական համալիր։',
     description:
       'Վահանավանքը հիմնադրվել է Սյունյաց իշխան Վահանի կողմից։ Համալիրը պատմականորեն ծառայել է որպես հոգևոր կենտրոն և Սյունյաց իշխանների տոհմական դամբարան։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: vahanavankImage,
     latitude: 39.235,
     longitude: 46.3507,
     isFeatured: true,
     visitingNote: 'Ճանապարհի վերջին հատվածը լեռնային է։ Նախընտրելի է այցելել լուսավոր ժամերին։',
     serviceSchedule: 'Ժամերգություն՝ տոնական օրերին',
     gallery: [
-      { id: 'vahanavank-1', url: 'https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&w=1600&q=85', alt: 'Վահանավանքը' },
-      { id: 'vahanavank-2', url: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1400&q=85', alt: 'Վահանավանքի քարե պատերը' },
+      { id: 'vahanavank-1', url: vahanavankImage, alt: 'Վահանավանքը' },
+      { id: 'vahanavank-2', url: vahanavankImage, alt: 'Վահանավանքի քարե պատերը' },
     ],
   },
   {
@@ -59,14 +65,13 @@ export const churches: ChurchRecord[] = [
     summary: 'Որոտանի կիրճին նայող պատմական վանք՝ նվիրված Սուրբ Գրիգորին։',
     description:
       'Որոտնավանքը Սյունիքի միջնադարյան կարևոր հոգևոր կենտրոններից է։ Վանքը ներդաշնակորեն միաձուլված է Որոտանի կիրճի խիստ ու վեհ բնապատկերին։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1568322503342-2b9c7f5efb1b?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: vorotnavankImage,
     latitude: 39.4995,
     longitude: 46.1135,
     isFeatured: false,
     visitingNote: 'Մուտքն ազատ է։ Տարածքում պահպանեք մաքրությունը։',
     gallery: [
-      { id: 'vorotnavank-1', url: 'https://images.unsplash.com/photo-1568322503342-2b9c7f5efb1b?auto=format&fit=crop&w=1600&q=85', alt: 'Որոտնավանքը' },
+      { id: 'vorotnavank-1', url: vorotnavankImage, alt: 'Որոտնավանքը' },
     ],
   },
   {
@@ -80,15 +85,14 @@ export const churches: ChurchRecord[] = [
     summary: 'Գորիսի համայնքի գործող եկեղեցին և թեմական կյանքի կարևոր կենտրոնը։',
     description:
       'Գորիսի Սուրբ Գրիգոր Լուսավորիչ եկեղեցին քաղաքի հոգևոր կյանքի կենտրոններից է՝ միավորելով ընտանիքներին, երիտասարդներին և ուխտավորներին։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1548625361-58a9b86aa83b?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: saintGregoryImage,
     latitude: 39.5111,
     longitude: 46.3417,
     isFeatured: true,
     visitingNote: 'Եկեղեցին բաց է ամեն օր։',
     serviceSchedule: 'Սուրբ Պատարագ՝ կիրակի, 10։30',
     gallery: [
-      { id: 'goris-1', url: 'https://images.unsplash.com/photo-1548625361-58a9b86aa83b?auto=format&fit=crop&w=1600&q=85', alt: 'Գորիսի Սուրբ Գրիգոր Լուսավորիչ եկեղեցին' },
+      { id: 'goris-1', url: saintGregoryImage, alt: 'Գորիսի Սուրբ Գրիգոր Լուսավորիչ եկեղեցին' },
     ],
   },
   {
@@ -102,35 +106,13 @@ export const churches: ChurchRecord[] = [
     summary: 'Վաղմիջնադարյան սրբավայր Սյունիքի բարձրադիր լեռնաշխարհում։',
     description:
       'Թանահատի վանքը Սյունիքի վաղ քրիստոնեական ժառանգության կարևոր վկայություններից է։ Պահպանված ավերակներն ու խաչքարերը պատմում են տարածքի դարավոր հոգևոր կյանքի մասին։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: tanahatImage,
     latitude: 39.6904,
     longitude: 45.8516,
     isFeatured: false,
     visitingNote: 'Տարածքը բարեկարգված չէ։ Այցելեք ուղեկցորդով և հարմար կոշիկներով։',
     gallery: [
-      { id: 'tanahat-1', url: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1600&q=85', alt: 'Թանահատի վանքի ավերակները' },
-    ],
-  },
-  {
-    id: 'church-bgheno-noravank',
-    slug: 'bgheno-noravank',
-    name: 'Բղենո Նորավանք',
-    shortName: 'Բղենո Նորավանք',
-    category: 'RUINED_SANCTUARY',
-    settlement: 'Բարձրավան գյուղի մոտ',
-    century: 'X–XI դդ.',
-    summary: 'Անտառապատ լեռներում թաքնված վանք՝ կապված Էջմիածնի Ավետարանի հետ։',
-    description:
-      'Բղենո Նորավանքը հայկական գրքարվեստի պատմության մեջ առանձնահատուկ տեղ ունի։ Այստեղ է ստեղծվել նշանավոր Էջմիածնի Ավետարանի մանրանկարների մի մասը։',
-    imageUrl:
-      'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=85',
-    latitude: 39.3226,
-    longitude: 46.1873,
-    isFeatured: false,
-    visitingNote: 'Դժվարամատչելի արահետ։ Անհրաժեշտ է տեղական ուղեկցորդ։',
-    gallery: [
-      { id: 'bgheno-1', url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=85', alt: 'Բղենո Նորավանք' },
+      { id: 'tanahat-1', url: tanahatImage, alt: 'Թանահատի վանքի ավերակները' },
     ],
   },
   {
@@ -143,13 +125,13 @@ export const churches: ChurchRecord[] = [
     century: 'XVII դ.',
     summary: 'Գյուղական համայնքի պատմական եկեղեցի՝ կենդանի ծիսական ավանդույթով։',
     description: 'Շինուհայրի Սուրբ Ստեփանոս եկեղեցին դարեր շարունակ եղել է համայնքի հավաքական հիշողության և աղոթքի վայրը։',
-    imageUrl: 'https://images.unsplash.com/photo-1548625361-58a9b86aa83b?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: stStepanosImage,
     latitude: 39.4354,
     longitude: 46.317,
     isFeatured: false,
     visitingNote: 'Այցից առաջ խորհուրդ է տրվում կապ հաստատել համայնքի պատասխանատուի հետ։',
     serviceSchedule: 'Ժամերգություն՝ կիրակի օրերին',
-    gallery: [{ id: 'shinuhayr-1', url: 'https://images.unsplash.com/photo-1548625361-58a9b86aa83b?auto=format&fit=crop&w=1400&q=85', alt: 'Սուրբ Ստեփանոս եկեղեցի' }],
+    gallery: [{ id: 'shinuhayr-1', url: stStepanosImage, alt: 'Սուրբ Ստեփանոս եկեղեցի' }],
   },
   {
     id: 'church-harjis-chapel',
@@ -161,11 +143,11 @@ export const churches: ChurchRecord[] = [
     century: 'XIX դ.',
     summary: 'Փոքր ուխտատեղի՝ Սյունյաց լեռնային ճանապարհների եզրին։',
     description: 'Սուրբ Մինաս մատուռը տեղական ուխտագնացության և ընտանեկան աղոթքի սիրված վայր է։',
-    imageUrl: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1600&q=85',
+    imageUrl: saintMinasImage,
     latitude: 39.535,
     longitude: 46.109,
     isFeatured: false,
     visitingNote: 'Մատուռ տանող ճանապարհը հարմար է միայն չոր եղանակին։',
-    gallery: [{ id: 'harjis-1', url: 'https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1400&q=85', alt: 'Սուրբ Մինաս մատուռ' }],
+    gallery: [{ id: 'harjis-1', url: saintMinasImage, alt: 'Սուրբ Մինաս մատուռ' }],
   },
 ];

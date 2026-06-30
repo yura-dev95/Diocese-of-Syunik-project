@@ -19,7 +19,7 @@ export function MissionSection() {
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {homePillars.map((pillar, index) => (
-            <AnimatedCard className="group border border-gold/25 bg-white/45 p-7 shadow-sm transition duration-500 hover:-translate-y-1 hover:bg-white/70 hover:shadow-sacred sm:p-9" key={pillar.title}>
+            <AnimatedCard className="group border border-gold/25 bg-parchment/80 p-7 shadow-sm transition duration-500 hover:-translate-y-1 hover:bg-white/75 hover:shadow-sacred sm:p-9" key={pillar.title}>
               <div className="flex items-start justify-between gap-5">
                 <span className="grid size-14 place-items-center rounded-full bg-episcopal text-gold">
                   <pillar.icon className="size-6" strokeWidth={1.5} />

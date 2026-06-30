@@ -8,7 +8,7 @@ interface AnimatedCardProps extends PropsWithChildren {
 export function AnimatedCard({ children, className = '' }: AnimatedCardProps) {
   return (
     <motion.article
-      className={className}
+      className={`rounded-md ${className}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}

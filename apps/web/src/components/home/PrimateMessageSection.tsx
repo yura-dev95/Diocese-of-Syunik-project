@@ -10,16 +10,16 @@ export function PrimateMessageSection() {
   const { localize } = useI18n();
 
   return (
-    <section className="relative overflow-hidden bg-episcopal py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-[rgb(245_236_215/var(--tw-bg-opacity,1))] py-24 sm:py-32">
       <div className="absolute -right-48 -top-48 size-[38rem] rounded-full border border-gold/10" />
       <div className="absolute -right-24 -top-24 size-[26rem] rounded-full border border-gold/10" />
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] xl:gap-20">
+      <Container className="relative grid items-center gap-14 bg-[rgb(245_236_215/var(--tw-bg-opacity,1))] text-[#561731] lg:grid-cols-[0.85fr_1.15fr] xl:gap-20">
         <AnimatedCard className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-t-[12rem] border border-gold/30 bg-royal shadow-2xl">
           <img
             alt={localize('Սյունյաց թեմի առաջնորդի լուսանկարի տեղապահ')}
             className="size-full object-cover opacity-75"
             loading="lazy"
-            src="https://images.unsplash.com/photo-1548625361-58a9b86aa83b?auto=format&fit=crop&w=1200&q=85"
+            src="/images/uploads/makar-episcopos.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-episcopal via-episcopal/5 to-transparent" />
           <div className="absolute bottom-7 left-7 right-7 border-l border-gold pl-5 text-parchment">
@@ -33,14 +33,13 @@ export function PrimateMessageSection() {
             eyebrow="Առաջնորդի ուղերձը"
             title="Մեր եկեղեցու դռները բաց են յուրաքանչյուրի առաջ"
             description="Սյունյաց թեմի առաքելությունն է պահպանել մեր հայրերի հավատքը և այն դարձնել կենդանի ուժ՝ ընտանիքների, երիտասարդների ու համայնքների կյանքում։"
-            light
           />
-          <blockquote className="mt-8 border-l border-gold/60 pl-6 font-display text-xl italic leading-9 text-parchment/85 sm:text-2xl">
+          <blockquote className="mt-8 border-l border-gold/60 pl-6 font-display text-xl italic leading-9 text-[#561731]/85 sm:text-2xl">
             {localize('«Թող Սյունյաց աշխարհի լույսը խաղաղություն բերի յուրաքանչյուր տուն, իսկ մեր միասնական ծառայությունը՝ հույս յուրաքանչյուր մարդու»։')}
           </blockquote>
           <div className="mt-9 flex flex-wrap items-center gap-5">
-            <Button href="/diocese" variant="light">{localize('Կարդալ ամբողջ ուղերձը')}</Button>
-            <Link className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-bold text-gold hover:text-parchment" to="/diocese">
+            <Button href="/diocese" variant="secondary">{localize('Կարդալ ամբողջ ուղերձը')}</Button>
+            <Link className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-bold text-[#561731] hover:text-gold" to="/diocese">
               {localize('Ծանոթանալ թեմակալ առաջնորդին')} <ArrowRight className="size-4" />
             </Link>
           </div>

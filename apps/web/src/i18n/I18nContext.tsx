@@ -13,6 +13,11 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 const storageKey = 'syunik-diocese-locale';
+const intlLocales: Record<Locale, string> = {
+  hy: 'hy-AM',
+  ru: 'ru-RU',
+  en: 'en-US',
+};
 
 function getInitialLocale(): Locale {
   const savedLocale = localStorage.getItem(storageKey);
@@ -32,7 +37,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       locale,
       setLocale,
       t: (key) => translations[locale][key],
-      formatDate: (date, options) => new Intl.DateTimeFormat(locale, options).format(new Date(date)),
+      formatDate: (date, options) => new Intl.DateTimeFormat(intlLocales[locale], options).format(new Date(date)),
       formatNumber: (number, options) => new Intl.NumberFormat(locale, options).format(number),
       localize: (text) => localizeContent(text, locale),
     }),

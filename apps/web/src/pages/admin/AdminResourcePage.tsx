@@ -52,8 +52,8 @@ export function AdminResourcePage() {
             <Search className="absolute left-3 top-3 size-4 text-slate-400" />
             <input className="min-h-11 rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm" placeholder="Search..." value={search} onChange={(event) => setSearch(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') void load(); }} />
           </label>
-          <button className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold" type="button" onClick={() => void load()}>Search</button>
-          {!config.readonly && <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-episcopal px-4 py-2 text-sm font-bold text-white" type="button" onClick={() => setIsCreating(true)}><Plus className="size-4" /> New</button>}
+          <button className="rounded-xl bg-gold px-4 py-2 text-sm font-bold text-white" type="button" onClick={() => void load()}>Search</button>
+          {!config.readonly && <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-4 py-2 text-sm font-bold text-white" type="button" onClick={() => setIsCreating(true)}><Plus className="size-4" /> New</button>}
         </div>
       </div>
       {error && <p className="mt-6 rounded-xl bg-royal/10 p-4 text-sm text-royal">{error}</p>}

@@ -1,5 +1,9 @@
 import type { ClergyRecord, OfficialDocumentRecord, PublicQuestionRecord } from '../types/clergy.types.js';
 
+const tatevImage = '/images/uploads/tatev.jpg';
+const fatherMikayelImage = '/images/uploads/father-mikayel.jpeg';
+const terAharonImage = '/images/uploads/ter-aharon.jpg';
+
 export const clergyMembers: ClergyRecord[] = [
   {
     id: 'clergy-primate',
@@ -7,7 +11,7 @@ export const clergyMembers: ClergyRecord[] = [
     fullName: 'Գերաշնորհ Տ. Մակար եպիսկոպոս',
     title: 'Սյունյաց թեմի առաջնորդ',
     biography: 'Սյունյաց թեմի առաջնորդը ծառայում է թեմի հոգևոր կյանքի զորացմանը, համայնքների միավորմանը և պատմական ժառանգության պահպանությանը։ Նրա առաջնորդությամբ թեմը զարգացնում է կրթական, երիտասարդական և սոցիալական ծրագրեր։',
-    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=85',
+    imageUrl: '/images/uploads/makar-episcopos.jpg',
     ordinationYear: 2001,
     education: 'Գևորգյան հոգևոր ճեմարան, աստվածաբանական բարձրագույն կրթություն',
     ministryFocus: 'Հովվական առաջնորդություն, կրթություն և սոցիալական ծառայություն',
@@ -21,7 +25,7 @@ export const clergyMembers: ClergyRecord[] = [
     fullName: 'Հոգեշնորհ Տ. Միքայել վարդապետ',
     title: 'Տաթևի վանքի վանահայր',
     biography: 'Ծառայում է Տաթևի վանական համալիրում՝ առաջնորդելով վանական համայնքի հոգևոր և ուխտավորների ընդունելության առաքելությունը։',
-    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: fatherMikayelImage,
     ordinationYear: 2010,
     ministryFocus: 'Վանական կյանք և ուխտավորների հոգևոր խնամք',
     isPrimate: false,
@@ -30,26 +34,14 @@ export const clergyMembers: ClergyRecord[] = [
   {
     id: 'clergy-goris',
     slug: 'father-narek-goris',
-    fullName: 'Արժանապատիվ Տ. Նարեկ քահանա',
+    fullName: 'Տեր Ահարոն քահանա Մելքումյան',
     title: 'Ծխական քահանա',
     biography: 'Ծառայում է Գորիսի համայնքին՝ հոգևոր խնամքի, երիտասարդական աշխատանքի և ընտանեկան խորհրդատվության ոլորտներում։',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: terAharonImage,
     ordinationYear: 2015,
     ministryFocus: 'Ընտանիքների և երիտասարդների հոգևոր խնամք',
     isPrimate: false,
     church: { slug: 'saint-gregory-goris', name: 'Սուրբ Գրիգոր Լուսավորիչ եկեղեցի', settlement: 'Գորիս' },
-  },
-  {
-    id: 'clergy-kapan',
-    slug: 'father-vahan-kapan',
-    fullName: 'Արժանապատիվ Տ. Վահան քահանա',
-    title: 'Կապանի տարածաշրջանի հոգևոր հովիվ',
-    biography: 'Հոգևոր ծառայություն է իրականացնում Կապանի և հարակից համայնքների ընտանիքների, տարեցների և սոցիալական կենտրոնների համար։',
-    imageUrl: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=1000&q=85',
-    ordinationYear: 2012,
-    ministryFocus: 'Համայնքային և սոցիալական ծառայություն',
-    isPrimate: false,
-    church: { slug: 'vahanavank-monastery', name: 'Վահանավանք', settlement: 'Կապան' },
   },
 ];
 

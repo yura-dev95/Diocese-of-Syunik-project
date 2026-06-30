@@ -1,5 +1,5 @@
 import { DigitalLibraryPreview } from '../components/heritage/DigitalLibraryPreview';
-import { FeaturedChurches } from '../components/heritage/FeaturedChurches';
+import { HeritageArtifactsSection } from '../components/heritage/HeritageArtifactsSection';
 import { HeritageHero } from '../components/heritage/HeritageHero';
 import { HeritageNavigation } from '../components/heritage/HeritageNavigation';
 import { HistoryTimeline } from '../components/heritage/HistoryTimeline';
@@ -9,7 +9,7 @@ export function HeritagePage() {
     <>
       <HeritageHero />
       <HeritageNavigation />
-      <FeaturedChurches />
+      <HeritageArtifactsSection />
       <HistoryTimeline />
       <DigitalLibraryPreview />
     </>

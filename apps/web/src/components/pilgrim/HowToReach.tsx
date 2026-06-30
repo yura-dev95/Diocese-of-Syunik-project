@@ -1,2 +1,10 @@
-import { Bus,Car,Download,Navigation } from 'lucide-react';import type { PilgrimRoute } from '../../types/pilgrim';import { Button } from '../common/Button';
-export function HowToReach({route}:{route:PilgrimRoute}){return <aside className="space-y-4"><div className="border border-gold/25 bg-white/45 p-6"><Navigation className="size-6 text-forest"/><h3 className="mt-4 font-display text-2xl font-bold text-episcopal">Ինչպե՞ս հասնել</h3><div className="mt-5 grid gap-4">{route.transportOptions.map((option,index)=><p className="flex gap-3 text-sm leading-6 text-ink/60" key={option}>{index===0?<Car className="size-4 shrink-0 text-gold"/>:<Bus className="size-4 shrink-0 text-gold"/>}{option}</p>)}</div></div><div className="bg-forest p-6 text-parchment"><Download className="size-6 text-gold"/><h3 className="mt-4 font-display text-2xl font-bold">Offline քարտեզ</h3><p className="mt-3 text-sm leading-7 text-parchment/60">PDF քարտեզի տեղապահ՝ ճանապարհին առանց ինտերնետի օգտագործելու համար։</p><Button className="mt-6 w-full" variant="light">Ներբեռնել քարտեզը</Button></div></aside>}
+import { Bus, Car, Download, Navigation } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
+import type { PilgrimRoute } from '../../types/pilgrim';
+import { Button } from '../common/Button';
+
+export function HowToReach({ route }: { route: PilgrimRoute }) {
+  const { localize } = useI18n();
+
+  return <aside className="space-y-4"><div className="border border-gold/25 bg-parchment/80 p-6"><Navigation className="size-6 text-forest"/><h3 className="mt-4 font-display text-2xl font-bold text-episcopal">{localize('Ինչպե՞ս հասնել')}</h3><div className="mt-5 grid gap-4">{route.transportOptions.map((option,index)=><p className="flex gap-3 text-sm leading-6 text-ink/60" key={option}>{index===0?<Car className="size-4 shrink-0 text-gold"/>:<Bus className="size-4 shrink-0 text-gold"/>}{localize(option)}</p>)}</div></div><div className="bg-forest p-6 text-parchment"><Download className="size-6 text-gold"/><h3 className="mt-4 font-display text-2xl font-bold">{localize('Offline քարտեզ')}</h3><p className="mt-3 text-sm leading-7 text-parchment/60">{localize('PDF քարտեզի տեղապահ՝ ճանապարհին առանց ինտերնետի օգտագործելու համար։')}</p><Button className="mt-6 w-full" variant="light">{localize('Ներբեռնել քարտեզը')}</Button></div></aside>;
+}

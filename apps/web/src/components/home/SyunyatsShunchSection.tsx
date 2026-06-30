@@ -12,7 +12,7 @@ export function SyunyatsShunchSection() {
   const { localize } = useI18n();
 
   return (
-    <section className="relative overflow-hidden bg-episcopal py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-[rgb(245_236_215/var(--tw-bg-opacity,1))] py-24 sm:py-32">
       <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
       <Container>
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -21,18 +21,17 @@ export function SyunyatsShunchSection() {
               eyebrow="Փոդքասթ և ուղիղ եթեր"
               title="Սյունյաց շունչ"
               description="Զրույցներ հավատքի, Սյունյաց ժառանգության և մեր համայնքի կենդանի պատմությունների մասին։"
-              light
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/spiritual-life" variant="light">{localize('Բոլոր թողարկումները')}</Button>
-              <Button href="/spiritual-life" className="gap-2 border-parchment/30 text-parchment hover:bg-parchment/10" variant="secondary">
+              <Button href="/spiritual-life" variant="secondary">{localize('Բոլոր թողարկումները')}</Button>
+              <Button href="/spiritual-life" className="gap-2" variant="secondary">
                 <Radio className="size-4 text-gold" /> {localize('Ուղիղ եթեր')}
               </Button>
             </div>
           </div>
 
           <motion.article
-            className="border border-gold/25 bg-parchment/5 p-5 shadow-2xl backdrop-blur-md sm:p-8"
+            className="border border-gold/25 bg-parchment/80 p-5 shadow-2xl shadow-episcopal/10 backdrop-blur-md sm:p-8"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
@@ -47,16 +46,16 @@ export function SyunyatsShunchSection() {
               <div className="flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">{localize(latestPodcast.episode)} · {localize(latestPodcast.publishedAt)}</p>
-                  <button aria-label={localize('Կիսվել թողարկմամբ')} className="focus-ring rounded-full border border-parchment/15 p-2.5 text-parchment/60 transition hover:text-gold" type="button">
+                  <button aria-label={localize('Կիսվել թողարկմամբ')} className="focus-ring rounded-full border border-gold/40 p-2.5 text-gold transition hover:bg-gold hover:text-white" type="button">
                     <Share2 className="size-4" />
                   </button>
                 </div>
-                <h3 className="mt-4 font-display text-2xl font-bold leading-snug text-parchment sm:text-3xl">{localize(latestPodcast.title)}</h3>
-                <p className="mt-4 text-sm leading-7 text-parchment/55">{localize(latestPodcast.description)}</p>
+                <h3 className="mt-4 font-display text-2xl font-bold leading-snug text-[#561731] sm:text-3xl">{localize(latestPodcast.title)}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#561731]/65">{localize(latestPodcast.description)}</p>
               </div>
             </div>
 
-            <div className="mt-7 flex items-center gap-4 border-t border-parchment/10 pt-6">
+            <div className="mt-7 flex items-center gap-4 border-t border-gold/25 pt-6">
               <button
                 aria-label={isPlaying ? localize('Դադարեցնել') : localize('Լսել թողարկումը')}
                 className="focus-ring grid size-12 shrink-0 place-items-center rounded-full bg-gold text-episcopal transition hover:bg-parchment"
@@ -66,14 +65,14 @@ export function SyunyatsShunchSection() {
                 {isPlaying ? <Pause className="size-4 fill-current" /> : <Play className="ml-0.5 size-4 fill-current" />}
               </button>
               <div className="flex-1">
-                <div className="h-1 overflow-hidden rounded-full bg-parchment/15">
+                <div className="h-1 overflow-hidden rounded-full bg-[#561731]/15">
                   <motion.div className="h-full bg-gold" animate={{ width: isPlaying ? '42%' : '12%' }} transition={{ duration: 1.2 }} />
                 </div>
-                <div className="mt-2 flex justify-between text-[10px] font-semibold text-parchment/45">
+                <div className="mt-2 flex justify-between text-[10px] font-semibold text-[#561731]/50">
                   <span>{isPlaying ? '12։04' : '03։26'}</span><span>{latestPodcast.duration}</span>
                 </div>
               </div>
-              <Volume2 className="hidden size-4 text-parchment/45 sm:block" />
+              <Volume2 className="hidden size-4 text-[#561731]/50 sm:block" />
             </div>
           </motion.article>
         </div>

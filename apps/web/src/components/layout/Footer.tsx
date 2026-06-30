@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { navigationItems } from '../../constants/navigation';
 import { useI18n } from '../../i18n/I18nContext';
 import { Container } from '../common/Container';
-import { LogoMark } from './LogoMark';
 
 const externalLinks = [
   { labelKey: 'external.motherSee' as const, href: 'https://www.armenianchurch.org/' },
@@ -15,14 +14,11 @@ export function Footer() {
   const { t } = useI18n();
 
   return (
-    <footer className="bg-episcopal text-parchment">
+    <footer className="border-t border-gold/20 bg-episcopal text-parchment">
       <Container className="grid gap-12 py-16 md:grid-cols-2 xl:grid-cols-4">
         <div>
-          <div className="flex items-center gap-3">
-            <LogoMark />
-            <p className="font-display text-xl font-bold">{t('brand.name')}</p>
-          </div>
-          <p className="mt-6 max-w-sm text-sm leading-7 text-parchment/65">
+          <p className="font-display text-xl font-bold">{t('brand.name')}</p>
+          <p className="mt-6 max-w-sm text-sm leading-7 text-parchment/70">
             {t('footer.description')}
           </p>
         </div>
@@ -30,7 +26,7 @@ export function Footer() {
           <h2 className="text-xs font-bold uppercase tracking-[0.22em] text-gold">{t('footer.sections')}</h2>
           <div className="mt-5 grid gap-3">
             {navigationItems.slice(1, 5).map((item) => (
-              <Link className="text-sm text-parchment/70 transition hover:text-gold" key={item.href} to={item.href}>
+              <Link className="text-sm text-parchment/72 transition hover:text-gold" key={item.href} to={item.href}>
                 {t(item.labelKey)}
               </Link>
             ))}
@@ -40,7 +36,7 @@ export function Footer() {
           <h2 className="text-xs font-bold uppercase tracking-[0.22em] text-gold">{t('footer.usefulLinks')}</h2>
           <div className="mt-5 grid gap-3">
             {externalLinks.map((item) => (
-              <a className="flex items-center gap-2 text-sm text-parchment/70 transition hover:text-gold" href={item.href} key={item.href} rel="noreferrer" target="_blank">
+              <a className="flex items-center gap-2 text-sm text-parchment/72 transition hover:text-gold" href={item.href} key={item.href} rel="noreferrer" target="_blank">
                 {t(item.labelKey)} <ArrowUpRight className="size-3" />
               </a>
             ))}
@@ -48,7 +44,7 @@ export function Footer() {
         </div>
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.22em] text-gold">{t('footer.contact')}</h2>
-          <div className="mt-5 grid gap-4 text-sm text-parchment/70">
+          <div className="mt-5 grid gap-4 text-sm text-parchment/72">
             <p className="flex gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-gold" /> {t('footer.address')}</p>
             <a className="flex gap-3 hover:text-gold" href="tel:+37400000000"><Phone className="size-4 shrink-0 text-gold" /> +374 00 00 00 00</a>
             <a className="flex gap-3 hover:text-gold" href="mailto:info@syunikdiocese.am"><Mail className="size-4 shrink-0 text-gold" /> info@syunikdiocese.am</a>

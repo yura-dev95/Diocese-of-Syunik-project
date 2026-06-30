@@ -1,10 +1,19 @@
-import { Cross } from 'lucide-react';
+interface LogoMarkProps {
+  className?: string;
+}
 
-export function LogoMark() {
+const logoSrc = '/images/uploads/syuniq-logo.webp';
+
+export function LogoMark({ className = '' }: LogoMarkProps) {
   return (
-    <span className="relative grid size-12 shrink-0 place-items-center rounded-full border border-gold/60 bg-episcopal text-gold shadow-md">
-      <span className="absolute inset-1 rounded-full border border-gold/25" />
-      <Cross aria-hidden="true" className="size-5" strokeWidth={1.6} />
+    <span className={`relative block shrink-0 ${className || 'h-20 w-16'}`}>
+      <img
+        alt=""
+        aria-hidden="true"
+        className="h-full w-full object-contain drop-shadow-md"
+        decoding="async"
+        src={logoSrc}
+      />
     </span>
   );
 }

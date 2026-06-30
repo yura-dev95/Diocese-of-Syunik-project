@@ -30,10 +30,10 @@ export function HeritageMap({ churches }: HeritageMapProps) {
           key={church.id}
           style={markerPosition(church)}
           title={church.name}
-          to={`/heritage/churches/${church.slug}`}
+          to={`/churches/${church.slug}`}
         >
           <span className="absolute inset-0 animate-ping rounded-full bg-gold/40" />
-          <span className="relative grid size-10 place-items-center rounded-full border-2 border-parchment bg-royal text-parchment shadow-lg transition group-hover:scale-110 group-hover:bg-gold group-hover:text-episcopal">
+          <span className="relative grid size-10 place-items-center rounded-full border-2 border-parchment bg-gold text-white shadow-lg transition group-hover:scale-110 group-hover:bg-gold group-hover:text-episcopal">
             <MapPin className="size-4" />
           </span>
         </Link>
