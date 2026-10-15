@@ -1,10 +1,29 @@
-import type { AnnouncementRecord,FAQRecord,GalleryImageRecord,NewsArticleRecord } from '../types/news.types.js';
+import type { AnnouncementRecord, FAQRecord, GalleryImageRecord, NewsArticleRecord } from '../types/news.types.js';
+
 const tatevImage = '/images/uploads/tatev.jpg';
-const tatevGallery:GalleryImageRecord[]=[{id:'news-gallery-1',url:tatevImage,alt:'Տաթևի վանական համալիր',caption:'Տաթևի վանական համալիրի համայնապատկերը',category:'Սրբավայրեր',sortOrder:1},{id:'news-gallery-2',url:tatevImage,alt:'Սյունյաց լեռներ',category:'Բնություն',sortOrder:2}];
-export const newsArticles:NewsArticleRecord[]=[
-{id:'news-1',slug:'tatev-pilgrimage-day',title:'Տաթևում կայացավ թեմական ուխտագնացության օրը',excerpt:'Հարյուրավոր ուխտավորներ միավորվեցին Սուրբ Պատարագի և համայնքային օրվա շուրջ։',content:'Տաթևի վանական համալիրում թեմի համայնքների մասնակցությամբ կայացավ ամենամյա ուխտագնացության օրը։ Օրը սկսվեց Սուրբ Պատարագով և շարունակվեց հոգևոր զրույցներով ու համայնքային հանդիպումներով։',coverUrl:tatevImage,category:'Թեմական կյանք',authorName:'Սյունյաց թեմի լրատվական ծառայություն',isFeatured:true,publishedAt:'2026-06-02',gallery:tatevGallery},
-{id:'news-2',slug:'youth-volunteer-program',title:'Մեկնարկեց երիտասարդ կամավորների ամառային ծրագիրը',excerpt:'Սյունիքի երիտասարդները կմասնակցեն սոցիալական և ժառանգության պահպանության ծրագրերին։',content:'Ամառային ծրագրի ընթացքում երիտասարդները կաջակցեն համայնքային կենտրոններին, կկազմակերպեն կրթական հանդիպումներ և կմասնակցեն սրբավայրերի տարածքների խնամքին։',coverUrl:'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=85',category:'Երիտասարդություն',authorName:'Սյունյաց թեմ',isFeatured:false,publishedAt:'2026-05-26',gallery:[]},
-{id:'news-3',slug:'warm-home-progress',title:'«Տուն» ծրագրի աջակցությունը հասավ 32 ընտանիքի',excerpt:'Ծրագրի առաջին փուլում տրամադրվել են ջեռուցման միջոցներ և վառելիք։',content:'Սահմանամերձ համայնքներում ծրագրի առաջին փուլն ավարտվել է։ Աջակցությունը շարունակվելու է տարվա ընթացքում՝ ընդգրկելով նոր ընտանիքներ։',coverUrl:'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=85',category:'Սոցիալական ծառայություն',authorName:'Սյունյաց թեմ',isFeatured:false,publishedAt:'2026-05-18',gallery:[]},
+
+const tatevGallery: GalleryImageRecord[] = [
+  { id: 'news-gallery-1', url: tatevImage, alt: 'Տաթևի վանական համալիր', caption: 'Տաթևի վանական համալիրի համայնապատկերը', category: 'Սրբավայրեր', sortOrder: 1 },
+  { id: 'news-gallery-2', url: tatevImage, alt: 'Սյունյաց լեռներ', category: 'Բնություն', sortOrder: 2 },
 ];
-export const announcements:AnnouncementRecord[]=[{id:'ann-1',slug:'vardavar-pilgrimage',title:'Վարդավառի ուխտագնացություն դեպի Տաթև',description:'Մեկնումը Գորիսից՝ առավոտյան 08։00-ին։ Մասնակցության համար անհրաժեշտ է նախապես գրանցվել։',announcementDate:'2026-07-12',priority:2},{id:'ann-2',slug:'choir-auditions',title:'Ընդունելություն թեմական երգչախումբ',description:'Բաց լսումներ 16 տարեկանից բարձր երգիչների համար։',announcementDate:'2026-06-20',priority:1}];
-export const faqs:FAQRecord[]=[{id:'faq-1',question:'Ինչպե՞ս կարող եմ մասնակցել Սուրբ Պատարագին։',answer:'Կարող եք այցելել գործող եկեղեցիներից որևէ մեկը հրապարակված ժամանակացույցով։ Նախնական գրանցում անհրաժեշտ չէ։',category:'Եկեղեցական կյանք',sortOrder:1},{id:'faq-2',question:'Ինչպե՞ս կազմակերպել ուխտագնացություն։',answer:'Դիմեք թեմի ուխտավորների աջակցության կոնտակտին կամ օգտվեք Ուխտավորի ուղեցույցի պատրաստ երթուղիներից։',category:'Ուխտագնացություն',sortOrder:2},{id:'faq-3',question:'Ինչպե՞ս աջակցել սոցիալական ծրագրերին։',answer:'Կարող եք ընտրել գործող սոցիալական ծրագիր, ստեղծել mock donation intent կամ լրացնել կամավորի դիմումը։',category:'Աջակցություն',sortOrder:3}];
+
+export const galleryImages: GalleryImageRecord[] = [
+  ...tatevGallery,
+];
+
+export const newsArticles: NewsArticleRecord[] = [
+  { id: 'news-1', slug: 'tatev-pilgrimage-day', title: 'Տաթևում կայացավ թեմական ուխտագնացության օրը', excerpt: 'Հարյուրավոր ուխտավորներ միավորվեցին Սուրբ Պատարագի և համայնքային օրվա շուրջ։', content: 'Տաթևի վանական համալիրում թեմի համայնքների մասնակցությամբ կայացավ ամենամյա ուխտագնացության օրը։ Օրը սկսվեց Սուրբ Պատարագով և շարունակվեց հոգևոր զրույցներով ու համայնքային հանդիպումներով։', coverUrl: tatevImage, category: 'Թեմական կյանք', authorName: 'Սյունյաց թեմի լրատվական ծառայություն', isFeatured: true, publishedAt: '2026-06-02', gallery: tatevGallery },
+  { id: 'news-2', slug: 'youth-volunteer-program', title: 'Մեկնարկեց երիտասարդ կամավորների ամառային ծրագիրը', excerpt: 'Սյունիքի երիտասարդները կմասնակցեն սոցիալական և ժառանգության պահպանության ծրագրերին։', content: 'Ամառային ծրագրի ընթացքում երիտասարդները կաջակցեն համայնքային կենտրոններին, կկազմակերպեն կրթական հանդիպումներ և կմասնակցեն սրբավայրերի տարածքների խնամքին։', coverUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=85', category: 'Երիտասարդություն', authorName: 'Սյունյաց թեմ', isFeatured: false, publishedAt: '2026-05-26', gallery: [] },
+  { id: 'news-3', slug: 'warm-home-progress', title: '«Տուն» ծրագրի աջակցությունը հասավ 32 ընտանիքի', excerpt: 'Ծրագրի առաջին փուլում տրամադրվել են ջեռուցման միջոցներ և վառելիք։', content: 'Սահմանամերձ համայնքներում ծրագրի առաջին փուլն ավարտվել է։ Աջակցությունը շարունակվելու է տարվա ընթացքում՝ ընդգրկելով նոր ընտանիքներ։', coverUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=85', category: 'Սոցիալական ծառայություն', authorName: 'Սյունյաց թեմ', isFeatured: false, publishedAt: '2026-05-18', gallery: [] },
+];
+
+export const announcements: AnnouncementRecord[] = [
+  { id: 'ann-1', slug: 'vardavar-pilgrimage', title: 'Վարդավառի ուխտագնացություն դեպի Տաթև', description: 'Մեկնումը Գորիսից՝ առավոտյան 08։00-ին։ Մասնակցության համար անհրաժեշտ է նախապես գրանցվել։', announcementDate: '2026-07-12', priority: 2 },
+  { id: 'ann-2', slug: 'choir-auditions', title: 'Ընդունելություն թեմական երգչախումբ', description: 'Բաց լսումներ 16 տարեկանից բարձր երգիչների համար։', announcementDate: '2026-06-20', priority: 1 },
+];
+
+export const faqs: FAQRecord[] = [
+  { id: 'faq-1', question: 'Ինչպե՞ս կարող եմ մասնակցել Սուրբ Պատարագին։', answer: 'Կարող եք այցելել գործող եկեղեցիներից որևէ մեկը հրապարակված ժամանակացույցով։ Նախնական գրանցում անհրաժեշտ չէ։', category: 'Եկեղեցական կյանք', sortOrder: 1 },
+  { id: 'faq-2', question: 'Ինչպե՞ս կազմակերպել ուխտագնացություն։', answer: 'Դիմեք թեմի ուխտավորների աջակցության կոնտակտին կամ օգտվեք Ուխտավորի ուղեցույցի պատրաստ երթուղիներից։', category: 'Ուխտագնացություն', sortOrder: 2 },
+  { id: 'faq-3', question: 'Ինչպե՞ս աջակցել սոցիալական ծրագրերին։', answer: 'Կարող եք ընտրել գործող սոցիալական ծրագիր, ստեղծել mock donation intent կամ լրացնել կամավորի դիմումը։', category: 'Աջակցություն', sortOrder: 3 },
+];

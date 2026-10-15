@@ -4,6 +4,7 @@ import { prisma } from '../prisma/client.js';
 import { signAccessToken } from '../utils/auth.js';
 import { loginSchema } from '../validators/auth.validator.js';
 
+
 function serializeUser(user: { id: string; email: string; name: string; role: 'ADMIN' | 'EDITOR' }) {
   return { id: user.id, email: user.email, name: user.name, role: user.role };
 }
