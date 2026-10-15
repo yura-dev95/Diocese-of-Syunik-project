@@ -6,7 +6,7 @@ const apiUrl =
     : process.env.EXPO_PUBLIC_API_URL;
 
 export const API_URL = apiUrl ?? 'http://localhost:4000/api/v1';
-export const ASSET_URL = process.env.EXPO_PUBLIC_ASSET_URL ?? 'http://localhost:5174';
+export const ASSET_URL = process.env.EXPO_PUBLIC_ASSET_URL ?? 'http://localhost:5173';
 
 export function toAbsoluteAssetUrl(url?: string | null) {
   if (!url) return undefined;
