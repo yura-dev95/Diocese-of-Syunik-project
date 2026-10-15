@@ -9,9 +9,23 @@ import { apiRouter } from './routes/index.js';
 
 export const app = express();
 
+const allowedOrigins = new Set([
+  env.CORS_ORIGIN,
+]);
+
 app.disable('x-powered-by');
 app.use(helmet());
-app.use(cors({ origin: env.CORS_ORIGIN }));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.has(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+}));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'));

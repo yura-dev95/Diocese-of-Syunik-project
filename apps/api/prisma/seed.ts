@@ -14,17 +14,23 @@ process.env.DATABASE_URL ??= 'postgresql://postgres:postgres@localhost:5433/syun
 const prisma = new PrismaClient();
 
 async function main() {
+  const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminEmail || !adminPassword || adminPassword.length < 12) {
+    throw new Error('Set ADMIN_EMAIL and ADMIN_PASSWORD (at least 12 characters) before seeding.');
+  }
+
   await prisma.user.upsert({
-    where: { email: 'admin@syunikdiocese.am' },
+    where: { email: adminEmail },
     update: {
       name: 'System Administrator',
       role: 'ADMIN',
     },
     create: {
-      email: 'admin@syunikdiocese.am',
+      email: adminEmail,
       name: 'System Administrator',
       role: 'ADMIN',
-      passwordHash: await bcrypt.hash('Admin12345!', 12),
+      passwordHash: await bcrypt.hash(adminPassword, 12),
     },
   });
 
